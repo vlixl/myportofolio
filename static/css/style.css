@@ -1,4 +1,7 @@
 
+/* 
+INITIAL PROJECT STYLING
+*/
 
 /* RESET DASAR & CUSTOM PROPERTIES */
 
@@ -203,5 +206,58 @@ h1, .brand {
 
     .social-links {
         justify-content: flex-start;
+    }
+}
+
+
+/* 
+TUTORIAL 1: ABOUT ME ADDITION
+*/
+#about-me {
+    font-family: "Space Grotesk", -apple-system, sans-serif;
+}
+
+#about-me-header {
+    background-color: #6b6459;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    padding: 5vh 0 5vh 0;
+    color:#faf6f0;
+}
+
+#about-me-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5vh 0 5vh 0;
+}
+
+#about-me-container div {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#e3d9c9;
+    margin: 5%;
+    border-radius: 20px;
+    width: 50%;
+    height: 40vh;
+}
+
+#about-me-container h3 {
+    justify-self: center;
+    margin: 5vh 0 5vh 0;
+    font-family: "Space Grotesk", -apple-system, sans-serif;
+    font-size: 2em;
+}
+#about-me-container ul {
+    padding: 0 10% 10% 10%;
+}
+
+@media (max-width: 600px){
+    #about-me-container {
+        flex-direction: column;
+    }
+    #about-me-container div {
+        width: 80%;
     }
 }
