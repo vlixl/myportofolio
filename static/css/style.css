@@ -1,47 +1,94 @@
 
+/* For gradients: https://cssgradient.io/ */
+
 /* 
 INITIAL PROJECT STYLING
 */
+html, body {
+  scrollbar-width: none;
+  margin: 0;
+}
 
-/* RESET DASAR & CUSTOM PROPERTIES */
-
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Variable Declaration */
+
 :root {
-    --ink: #1c1917;
-    --paper: #faf6f0;
-    --accent: #d95d39;
-    --accent-dark: #a8442a;
-    --line: #e3d9c9;
-    --text-muted: #6b6459;
+    /* Text Colors */
+    --ink: #ffffff;
+    --text-muted: #bbbbbd;
+
+    /* Gradients */
+    --bright-gradient: linear-gradient(90deg,
+        rgba(221, 0, 255, 1) 0%,
+        rgba(255, 136, 0, 1) 100%);
+    --paper-gradient: linear-gradient(
+        var(--paper), 
+        var(--paper)
+        );
+
+    /* Document Colors */
+    --paper: #000000;
+
+    /* Page Separator */
+    --line: #e3d9c9; 
+
+    /* Other Settings */
     --radius: 4px;
+    --radius-max: 9999px;
+    --letter-spacing: -0.05em;
 }
 
 body {
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Outfit", "Inter", sans-serif;
     color: var(--ink);
     background-color: var(--paper);
     line-height: 1.6;
 }
 
-h1, .brand {
-    font-family: "Space Grotesk", -apple-system, sans-serif;
+h1 {
+    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
+    font-weight: normal;
+    /* font-style: italic; */
+    
+    letter-spacing: -0.02em;
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    line-height: 0.95;
+    padding: 1rem 1rem 0 0;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    letter-spacing: -0.06em;
+    font-size: clamp(6rem, 10vw, 15rem);
+}
+
+.subtitle {
+    margin-top: -5vh;
+    margin-bottom: 5vh;
+    color: var(--text-muted);
+    font-size: 1.2em;
 }
 
 .container {
-    max-width: 960px;
+    width: 80vw;
     margin: 0 auto;
-    padding: 0 1.5rem;
 }
 
 
-/* HEADER DENGAN FLEXBOX */
+/* NAVBAR HEADER */
 
-.site-header {
+/* Line Break */
+.site-header { 
     border-bottom: 1px solid var(--line);
 }
 
@@ -50,13 +97,6 @@ h1, .brand {
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 1.5rem;
-}
-
-.brand {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--ink);
-    text-decoration: none;
 }
 
 .site-header nav {
@@ -68,6 +108,24 @@ h1, .brand {
     color: var(--ink);
     text-decoration: none;
     font-size: 0.95rem;
+}
+
+/* Brand Logo & Text */
+.brand {
+    display: flex;
+    text-decoration: none;
+    font-family: "Outfit", "Inter", sans-serif;
+    font-weight: bolder;
+    letter-spacing: 0.2em;
+
+}
+.brand p {
+    padding-left: 2vh;
+    font-size: 1rem;
+    color: var(--ink);
+}
+.brand img {
+    width: 3vh;
 }
 
 
@@ -98,19 +156,17 @@ h1, .brand {
     font-size: 0.85rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent-dark);
+    color: #fcd15a;
     font-weight: 700;
     margin-bottom: 0.75rem;
 }
 
-.hero-identity h1 {
-    font-size: clamp(3rem, 7vw, 5rem);
-    line-height: 0.95;
-}
 
 .bio {
+    font-family: "Inter", sans-serif;
     color: var(--text-muted);
     max-width: 480px;
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
 }
 
@@ -129,29 +185,68 @@ h1, .brand {
 }
 
 .meta-row dd {
+    font-family: "Inter", sans-serif;
     font-weight: 600;
 }
 
 .social-links {
     display: flex;
-    gap: 0.5rem;
+    gap: 2rem;
     flex-wrap: wrap;
+    justify-content: left;
 }
 
-.social-link {
-    display: inline-block;
+.social-links a {
+    
+    overflow: hidden;
+
+    /* Font */
     font-size: 0.85rem;
     font-weight: 600;
+    color: var(--ink);
+
+    /* Layout */
+    padding: 0.5em 2em;
+    
+    border-radius: var(--radius-max);
+    border: 1px solid transparent;
+
     text-decoration: none;
-    color: var(--paper);
-    background-color: var(--ink);
-    border-radius: var(--radius);
-    padding: 0.5rem 1.1rem;
-    transition: background-color 0.2s ease;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    background:
+        var(--paper-gradient) padding-box,
+        var(--bright-gradient) border-box;
 }
 
-.social-link:hover {
-    background-color: var(--accent);
+.social-links a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: var(--bright-gradient);
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+
+    z-index: -1;
+}
+
+.social-links a:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(221, 0, 255, 0.3);
+}
+
+.social-links a:hover::before {
+    opacity: 1;
+}
+
+.social-links a:active {
+    transform: translateY(2px) scale(0.95);
+    box-shadow: 0 3px 8px rgba(221, 0, 255, 0.25);
 }
 
 .hero-photo {
@@ -162,12 +257,11 @@ h1, .brand {
 
 .photo-block {
     position: absolute;
-    top: 1.25rem;
-    left: 1.25rem;
+    top: 2vw;
+    left: 2vw;
     width: 100%;
     height: 100%;
-    background-color: var(--accent);
-    border-radius: var(--radius);
+    background-image: var(--bright-gradient);
     z-index: 0;
 }
 
@@ -178,8 +272,6 @@ h1, .brand {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: var(--radius);
-    border: 3px solid var(--ink);
 }
 
 /* FOOTER & RESPONSIVE */
@@ -191,7 +283,7 @@ h1, .brand {
     border-top: 1px solid var(--line);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .hero-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -209,55 +301,132 @@ h1, .brand {
     }
 }
 
-
-/* 
-TUTORIAL 1: ABOUT ME ADDITION
-*/
-#about-me {
-    font-family: "Space Grotesk", -apple-system, sans-serif;
-}
-
-#about-me-header {
-    background-color: #6b6459;
-    font-size: 5vh;
-    display: flex;
-    justify-content: center;
-    padding: 5vh 0 5vh 0;
-    color:#faf6f0;
-}
-
-#about-me-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: 5vh 0 5vh 0;
-}
-
-#about-me-container div {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:#e3d9c9;
-    margin: 5%;
-    border-radius: 20px;
-    width: 50%;
-    height: 40vh;
-}
-
-#about-me-container h3 {
+hr {
+    width:90vw;
     justify-self: center;
-    margin: 5vh 0 5vh 0;
-    font-family: "Space Grotesk", -apple-system, sans-serif;
-    font-size: 2em;
-}
-#about-me-container ul {
-    padding: 0 10% 10% 10%;
+    border: solid;
+    border-width: 0 0 0.1px 0;
+    border-color: var(--line);
+    margin: 10vh 0;
 }
 
-@media (max-width: 600px){
-    #about-me-container {
+/* Music Section */
+
+#music ul {
+    display: flex;
+    flex-direction: column;
+    margin: 15vh 0;
+    gap: 15vh;
+}
+
+
+/* Music Container */
+#music ul li {
+    position: relative;
+    overflow: hidden;
+    list-style-type: none;
+    height: 40vh;
+
+    display: flex;
+
+    padding: 2em;
+    z-index: -2;
+}
+
+.diamond-overlay {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    right: 300px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255,255,255,0.28);
+    transform: rotate(45deg);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Music Text */
+.music-info {
+    display: flex;
+    flex-direction: column;
+}
+.music-title {
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: var(--letter-spacing);
+    font-size: 3.5em;
+    line-height: 1.1;
+    margin-top: auto;
+    padding: 0.2em 0;
+}
+
+.play-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    
+    margin: auto 2em auto auto;
+}
+
+.play-button svg {
+    width: 5em;
+    height: auto;
+}
+
+/* waveform icon, left side */
+  .waveform {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 70px;
+    width: 8em;
+    margin: auto 2em;
+    flex-shrink: 0;
+  }
+
+  .waveform span {
+    width: 4px;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  .waveform span:nth-child(1)  { height: 60%; }
+  .waveform span:nth-child(2)  { height: 40%; }
+  .waveform span:nth-child(3)  { height: 70%; }
+  .waveform span:nth-child(4)  { height: 100%; }
+  .waveform span:nth-child(5)  { height: 50%; }
+  .waveform span:nth-child(6)  { height: 70%; }
+
+
+@media (max-width: 800px) {
+    #music ul li {
         flex-direction: column;
+        height: 50vh;
     }
-    #about-me-container div {
-        width: 80%;
-    }
+
+    .music-title{
+        font-size: 3em;
+    }    
+}
+.music-bars {
+    width: 10px;
+    background-color: white;
+}
+
+
+#music-1{
+    background-image: linear-gradient(120deg,
+    rgba(0, 8, 255, 1) 0%, 
+    rgba(238, 0, 255, 1) 100%);
+}
+#music-2{
+    background-image: linear-gradient(120deg,
+    rgba(179, 0, 255, 1) 0%, 
+    rgba(255, 0, 102, 1) 100%);
+}
+#music-3{
+    background-image: linear-gradient(120deg,
+    rgba(255, 55, 0, 1) 0%, 
+    rgb(237, 158, 0) 100%);
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Button</title>
+    <style>
+    :root{
+        --gradient: linear-gradient(
+                90deg,
+                rgba(221, 0, 255, 1),
+                rgba(255, 136, 0, 1)
+            );
+    }
+    #btn {
+        font-size: 4em;
+        margin: 3em auto;
+
+        border: 5px solid transparent;
+        border-radius: 999px;
+
+        height: 2em;
+        width: 4em;
+
+        text-decoration: none;
+        color:black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background:
+            linear-gradient(white, white) padding-box,
+            var(--gradient) border-box;
+    }
+    #btn:hover {
+        background:
+            var(--gradient) padding-box,
+            var(--gradient) border-box;
+    }
+  
+    </style>
+</head>
+<body>
+    <a href="#" id="btn">Button</a>
+</body>
+</html>

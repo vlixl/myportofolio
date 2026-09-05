@@ -4,18 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincent - Portfolio</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- STIX Two Text -->
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Source Serif 4 -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <!-- Bodoni Moda -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+     <link rel="icon" href="../static/img/logo.svg">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="#profile" class="brand">Leow Vincent Vintizel</a>
+            <a href="#profile" class="brand">
+                <img src="../static/img/logo.svg" alt="Vlixl logo">
+                <p>VLIXL</p>
+            </a>
             <nav>
                 <a href="#profile">Profile</a>
-                <a href="#about-me">About Me</a>
+                <a href="#music">Music</a>
             </nav>
         </div>
     </header>
@@ -25,7 +44,7 @@
             <div class="container hero-grid">
                 <div class="hero-identity">
                     <p class="hero-kicker">Computer Science &middot; Universitas Indonesia</p>
-                    <h1>Leow Vincent V.</h1>
+                    <h1>Leow Vincent Vintizel</h1>
                 </div>
                 <div class="hero-photo">
                     <div class="photo-block"></div>
@@ -44,36 +63,65 @@
                         </div>
                     </dl>
                     <div class="social-links">
-                        <a href="https://github.com/vlixl" class="social-link">GitHub</a>
-                        <a href="www.linkedin.com/in/vlixl-undefined-1957a2408" class="social-link">LinkedIn</a>
-                        <a href="mailto:vlixl.tech@gmail.com" class="social-link">Email</a>
+                        <a href="https://github.com/vlixl">GitHub</a>
+                        <a href="https://www.linkedin.com/in/vlixl">LinkedIn</a>
+                        <a href="mailto:vlixl.tech@gmail.com">Email</a>
                     </div>
                 </div>
             </div>
         </section>
-  
-        <section id="about-me">
-            <h2 id="about-me-header">Know more about me!</h2>
-            <div id="about-me-container">
-                <div id="skills">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Mathematical Problem Solving</li>
-                        <li>Python & Java Programming</li>
-                        <li>Musical Arranging</li>
-                        <li>Designing with Affinity</li>
-                    </ul>
-                </div>
-
-                <div id="education">
-                    <h3>Education</h3>
-                    <ul>
-                        <li>SMP - Susteran Purwokerto</li>
-                        <li>SMA - Sedes Sapientiae Jambu</li>
-                        <li>S1 - Universitas Indonesia</li>
-                    </ul>
-                </div>
-            </div>
+        <hr>
+        <section id="music" class="container">
+            <h2>Music</h2>
+            <p class="subtitle">The Universal Expression of Humanity's Emotions</p>
+            <ul>
+                <li id="music-1">
+                    <div class="diamond-overlay"></div>
+                    <div class="waveform">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="music-info">
+                        <p class="music-title">Revived in the Light</p>
+                        <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
+                    </div>
+                    <button class="play-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
+                    </button>
+                </li>
+                <li id="music-2">
+                    <div class="diamond-overlay"></div>
+                    <div class="waveform">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="music-info">
+                        <p class="music-title">Echo</p>
+                        <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
+                    </div>
+                    <button class="play-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
+                    </button>
+                </li>
+                <li id="music-3">
+                    <div class="diamond-overlay"></div>
+                    <div class="waveform">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="music-info">
+                        <p class="music-title">Arunika</p>
+                        <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
+                    </div>
+                    <button class="play-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
+                    </button>
+                </li>
+            </ul>
+        </section>
+        <hr>
+        <section id="photography" class="container">
+            <h2>Photography</h2>
         </section>
     </main>
 
