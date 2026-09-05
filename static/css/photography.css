@@ -7,10 +7,15 @@
 #photography h2 {
     font-size: clamp(4rem, 10vw, 15rem);
 }
+#photography .subtitle{
+    margin-top: -3vh;
+}
+
 #gallery {
     width: 100%;
     overflow-x: scroll;
     overflow:hidden;
+    margin: 5em 0;
 }
 
 #gallery-track {

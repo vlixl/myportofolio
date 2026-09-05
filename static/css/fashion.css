@@ -1,0 +1,14 @@
+/* 
+==================================================
+    FASHION SECTION
+==================================================
+*/
+
+#portrait-gallery{
+    display: flex;
+    flex-direction: column;
+}
+
+#portrait-gallery img{
+    width: 50vw;
+}

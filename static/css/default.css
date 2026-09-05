@@ -24,6 +24,9 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
@@ -94,8 +97,8 @@ hr {
 }
 
 .subtitle {
-    margin-top: -5vh;
-    margin-bottom: 5vh;
+    margin-top: -4vh;
+    margin-bottom: 4vh;
     color: var(--text-muted);
     font-size: 1.2em;
 }
