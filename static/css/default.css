@@ -1,0 +1,95 @@
+/* 
+==================================================
+    Default Styling
+==================================================
+*/
+
+/* Remove Sidebar */
+html, body {
+  scrollbar-width: none;
+  margin: 0;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variable Declaration */
+:root {
+    /* Text Colors */
+    --ink: #ffffff;
+    --text-muted: #bbbbbd;
+
+    /* Gradients */
+    --bright-gradient: linear-gradient(90deg,
+        rgba(221, 0, 255, 1) 0%,
+        rgba(255, 136, 0, 1) 100%);
+    --paper-gradient: linear-gradient(
+        var(--paper), 
+        var(--paper)
+        );
+
+    /* Document Colors */
+    --paper: #000000;
+
+    /* Page Separator */
+    --line: #e3d9c9; 
+
+    /* Other Settings */
+    --radius: 4px;
+    --radius-max: 9999px;
+    --letter-spacing: -0.05em;
+}
+/* For gradients: https://cssgradient.io/ */
+
+body {
+    font-family: "Outfit", "Inter", sans-serif;
+    color: var(--ink);
+    background-color: var(--paper);
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
+    font-weight: normal;
+    /* font-style: italic; */
+    
+    letter-spacing: -0.02em;
+    font-size: clamp(3.8rem, 8vw, 5rem);
+    line-height: 0.95;
+    padding: 1rem 1rem 0 0;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    letter-spacing: -0.06em;
+    font-size: clamp(6rem, 10vw, 15rem);
+}
+
+hr {
+    width:90vw;
+    justify-self: center;
+    border: solid;
+    border-width: 0 0 0.1px 0;
+    border-color: var(--line);
+    margin: 10vh 0;
+}
+
+.subtitle {
+    margin-top: -5vh;
+    margin-bottom: 5vh;
+    color: var(--text-muted);
+    font-size: 1.2em;
+}
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
