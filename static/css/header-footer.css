@@ -25,6 +25,16 @@
     color: var(--ink);
     text-decoration: none;
     font-size: 0.95rem;
+
+    background-image: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    transition: color 0.3s ease;
+}
+
+.site-header nav a:hover {
+    color: transparent;
 }
 
 /* Brand Logo & Text */
@@ -41,8 +51,14 @@
     font-size: 1rem;
     color: var(--ink);
 }
+@media (max-width: 800px) {
+    .brand p {
+        display: none;
+    }
+}
 .brand img {
     width: 3vh;
+    height: 3vh;
 }
 
 /* 
@@ -56,4 +72,32 @@
     color: var(--text-muted);
     font-size: 0.85rem;
     border-top: 1px solid var(--line);
+}
+
+/* Logo */
+
+.brand-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10rem;
+}
+
+.brand-logo img{
+    width: 20vw;
+    aspect-ratio: 1;
+    display: none;
+}
+.brand-logo p {
+    font-family: "Outfit", "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 10vw;
+    letter-spacing: 0.5vw;
+    margin: 5vw;
+    
+    background-image: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }

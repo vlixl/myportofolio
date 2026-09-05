@@ -13,7 +13,9 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-
+img {
+    object-fit: cover;
+}
 /* Remove Sidebar */
 html, body {
   scrollbar-width: none;
@@ -39,6 +41,7 @@ html {
     /* Text Colors */
     --ink: #ffffff;
     --text-muted: #bbbbbd;
+    --text-highlight: rgb(221, 0, 255);
 
     /* Gradients */
     --bright-gradient: linear-gradient(90deg,
@@ -93,7 +96,7 @@ hr {
     border: solid;
     border-width: 0 0 0.1px 0;
     border-color: var(--line);
-    margin: 10vh 0;
+    margin: 20vh 0;
 }
 
 .subtitle {

@@ -4,11 +4,49 @@
 ==================================================
 */
 
-#portrait-gallery{
+
+#fashion-gallery {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+#fashion-gallery-left,
+#fashion-gallery-right {
     display: flex;
     flex-direction: column;
 }
+#fashion-title{
+    margin: auto auto auto 0;
+}
+#fashion-title h2{
+    font-family: 'Bodoni Moda', 'Times New Roman', Times, serif;
+    font-size: clamp(5em, 12vw, 12em);
+    font-style: italic;
+}
 
-#portrait-gallery img{
-    width: 50vw;
+#fashion-title p{
+    margin: -10vh 0 5vh 0;
+    font-family: 'Source Serif 4', 'Times New Roman', Times, serif;
+    font-size: clamp(1em, 5vw, 3.5em);
+    font-weight: lighter;
+}
+@media (max-width:1000px){
+    #fashion-title p{
+        margin: -5vh 0 5vh 0;
+    }
+}
+#fashion-gallery-left {
+    flex: 2.5;
+}
+
+#fashion-gallery-right {
+    flex: 1;
+    gap: 2rem;
+    justify-content: space-evenly;
+}
+
+#fashion-gallery img {
+    width: 100%;
 }
