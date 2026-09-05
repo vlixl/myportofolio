@@ -4,6 +4,16 @@
 ==================================================
 */
 
+/* Hide Scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 /* Remove Sidebar */
 html, body {
   scrollbar-width: none;
@@ -14,6 +24,7 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
+
 * {
     margin: 0;
     padding: 0;
