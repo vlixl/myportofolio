@@ -80,7 +80,7 @@ h1 {
     letter-spacing: -0.02em;
     font-size: clamp(3.8rem, 8vw, 5rem);
     line-height: 0.95;
-    padding: 1rem 1rem 0 0;
+    padding: 2rem 0 0 0;
 }
 
 h2 {
@@ -96,7 +96,7 @@ hr {
     border: solid;
     border-width: 0 0 0.1px 0;
     border-color: var(--line);
-    margin: 20vh 0;
+    margin: 25vh 0;
 }
 
 .subtitle {
