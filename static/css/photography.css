@@ -4,11 +4,48 @@
     PHOTOGRAPHY SECTION
 ==================================================
 */
-
-#gallery {
-
+#photography h2 {
+    font-size: clamp(4rem, 10vw, 15rem);
 }
-#gallery img {
-    max-width: 50vw;
+#gallery {
+    width: 100%;
+    overflow-x: scroll;
+    overflow:hidden;
+}
+
+#gallery-track {
+    display: flex;
+    width: max-content;
+    gap: 3vw;
+}
+
+#gallery-track img {
+    width: 30vw;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+#gallery-track:nth-child(1){
+    animation: scroll1 30s linear infinite;
+}
+#gallery-track:nth-child(2){
+    animation: scroll2 30s linear infinite;
+}
+#gallery-track:nth-child(3){
+    animation: scroll3 30s linear infinite;
+}
+
+@keyframes scroll1 {
+    from{ transform: translateX(0);     }
+    to  { transform: translateX(-50%);  }
+}
+@keyframes scroll2 {
+    from{ transform: translateX(-50%);     }
+    to  { transform: translateX(0%);  }
+}
+@keyframes scroll3 {
+    from{ transform: translateX(-20%);     }
+    to  { transform: translateX(-70%);  }
 }
 
