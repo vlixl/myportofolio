@@ -16,6 +16,7 @@
     overflow-x: scroll;
     overflow:hidden;
     margin: 5em 0;
+    height: 100%;
 }
 
 #gallery-track {
@@ -25,7 +26,7 @@
 }
 
 #gallery-track img {
-    width: 30vw;
+    height: 40vh;
     aspect-ratio: 4/3;
     object-fit: cover;
     flex-shrink: 0;
