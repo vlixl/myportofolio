@@ -23,7 +23,7 @@
     display: flex;
 
     padding: 2em;
-    z-index: -2;
+    z-index: 0;
 
 }
 
@@ -61,17 +61,8 @@
     line-height: 1.2;
 }
 
-.play-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    margin: auto 2em auto auto;
-}
-
-.play-button svg {
-    width: 5em;
-    height: auto;
+audio {
+    margin: auto 1em;
 }
 
 /* waveform icon, left side */
@@ -130,3 +121,18 @@
     rgba(255, 55, 0, 1) 0%, 
     rgb(237, 158, 0) 100%);
 }
+
+
+
+/* .play-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: auto 2em auto auto;
+}
+
+.play-button svg {
+    width: 5em;
+    height: auto;
+} */

@@ -28,6 +28,14 @@
     <link rel="stylesheet" href="/static/css/hero.css">
     <link rel="stylesheet" href="/static/css/music.css">
     <link rel="stylesheet" href="/static/css/photography.css">
+    <style>
+        audio {
+            position: relative;
+            z-index: 999999;
+            pointer-events: auto;
+        }
+    </style>
+
 </head>
 <body>
     <header class="site-header">
@@ -79,6 +87,7 @@
             <h2>Music</h2>
             <p class="subtitle">The Universal Expression of Humanity's Emotions</p>
             <ul>
+
                 <li id="music-1">
                     <div class="diamond-overlay"></div>
                     <div class="waveform">
@@ -89,10 +98,12 @@
                         <p class="music-title">Revived in the Light</p>
                         <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
                     </div>
-                    <button class="play-button">
+                    <audio src="../static/audio/Revived by the Light.mp3" controls></audio>
+                    <!-- <button class="play-button">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
-                    </button>
+                    </button> -->
                 </li>
+
                 <li id="music-2">
                     <div class="diamond-overlay"></div>
                     <div class="waveform">
@@ -101,12 +112,14 @@
                     </div>
                     <div class="music-info">
                         <p class="music-title">Echo</p>
-                        <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
+                        <p class="music-subtitle">A call from the past to relay unto the future</p>
                     </div>
-                    <button class="play-button">
+                    <audio src="../static/audio/Echo Orchestra-2.mp3"controls></audio>
+                    <!-- <button class="play-button">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
-                    </button>
+                    </button> -->
                 </li>
+
                 <li id="music-3">
                     <div class="diamond-overlay"></div>
                     <div class="waveform">
@@ -114,12 +127,13 @@
                         <span></span><span></span><span></span>
                     </div>
                     <div class="music-info">
-                        <p class="music-title">Arunika</p>
-                        <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
+                        <p class="music-title">Eternal Twilight</p>
+                        <p class="music-subtitle">Reminisce at the light of dusk</p>
                     </div>
-                    <button class="play-button">
+                    <audio src="../static/audio/Eternal Twilight-2.mp3"controls></audio>
+                    <!-- <button class="play-button">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>
-                    </button>
+                    </button> -->
                 </li>
             </ul>
         </section>
