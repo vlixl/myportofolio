@@ -1,35 +1,26 @@
 /* 
 ==================================================
-    Default Styling
+    Display Configuration
 ==================================================
 */
 
-/* Hide Scrollbar */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
 img {
     object-fit: cover;
 }
-/* Remove Sidebar */
+
 html, body {
-  scrollbar-width: none;
-  margin: 0;
+    scroll-behavior: smooth;    /* Smooth scroll */
+    scrollbar-width: none;      /* Remove scrollbar */
+    margin: 0;                  /* Remove body margins */
 }
 
+/* Remove scrollbar for other browsers */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  display: none;
-}
-html {
-  scroll-behavior: smooth;
+    display: none; 
 }
 
+/* Remove default spacing */
 * {
     margin: 0;
     padding: 0;
@@ -65,22 +56,17 @@ html {
 }
 /* For gradients: https://cssgradient.io/ */
 
+/* 
+==================================================
+    Default Elements
+==================================================
+*/
+
 body {
     font-family: "Outfit", "Inter", sans-serif;
     color: var(--ink);
     background-color: var(--paper);
     line-height: 1.6;
-}
-
-h1 {
-    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
-    font-weight: normal;
-    /* font-style: italic; */
-    
-    letter-spacing: -0.02em;
-    font-size: clamp(3.8rem, 8vw, 5rem);
-    line-height: 0.95;
-    padding: 2rem 0 0 0;
 }
 
 h2 {

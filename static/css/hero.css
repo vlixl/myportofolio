@@ -4,6 +4,7 @@
 ==================================================
 */
 
+/* === Hero Grid Display Management === */
 .hero {
     padding: 4.5rem 0 5rem;
 }
@@ -24,7 +25,11 @@
 .hero-details {
     grid-area: details;
 }
+.hero-photo {
+    grid-area: photo;
+}
 
+/* === Computer Science Universitas Indonesia === */
 .hero-kicker {
     font-size: 0.85rem;
     letter-spacing: 0.08em;
@@ -34,6 +39,47 @@
     margin-bottom: 0.75rem;
 }
 
+/* === Name Section === */
+.name {
+    padding: 2rem 0 0 0;
+  
+}
+.name span {
+    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
+    font-weight: normal;
+    /* font-style: italic; */
+    
+    letter-spacing: -0.02em;
+    font-size: clamp(3.8rem, 8vw, 5rem);
+
+    background: linear-gradient(
+        0deg,
+        #dd00ff,
+        #ff8800
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: white;
+    
+
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.name span:hover {
+    color: transparent;
+}
+.word {
+    white-space: nowrap;
+    display: inline-block;
+    margin: -1rem 0.3rem;
+}
+
+/* === Bio Paragraph === */
 
 .bio {
     font-family: "Inter", sans-serif;
@@ -43,7 +89,7 @@
     margin-bottom: 1.5rem;
 }
 
-/* NPM & Program Studi */
+/* === NPM & Program Studi === */
 .meta-list {
     display: flex;
     gap: 2rem;
@@ -63,7 +109,7 @@
     font-weight: 600;
 }
 
-/* Links */
+/* === Github, LinkedIn & Email links === */
 .social-links {
     display: flex;
     gap: 2rem;
@@ -73,12 +119,11 @@
 
 .social-links a {
     
-    overflow: hidden;
-
     /* Font */
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--ink);
+    text-decoration: none;
 
     /* Layout */
     padding: 0.5em 2em;
@@ -86,15 +131,16 @@
     border-radius: var(--radius-max);
     border: 1px solid transparent;
 
-    text-decoration: none;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
+    /* Coloring */
     background:
         var(--paper-gradient) padding-box,
         var(--bright-gradient) border-box;
+    overflow: hidden;
+
+    /* Pop Out Animation */
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;    
 }
 
 .social-links a::before {
@@ -110,6 +156,7 @@
     z-index: -1;
 }
 
+/* Pop out on hover */
 .social-links a:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 0 12px 25px rgba(221, 0, 255, 0.3);
@@ -124,9 +171,8 @@
     box-shadow: 0 3px 8px rgba(221, 0, 255, 0.25);
 }
 
-/* Profile Photo */
+/* === Profile Photo === */
 .hero-photo {
-    grid-area: photo;
     align-self: center;
     position: relative;
 }
