@@ -9,7 +9,7 @@
 
 
 /* Music Container */
-.music-box {
+.music-card {
     /* Positioning */
     position: relative;
     z-index: 0;
@@ -31,7 +31,7 @@
 }
 
 /* Pop out on hover */
-.music-box:hover {
+.music-card:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 12px 25px rgba(221, 0, 255, 0.3);
 }

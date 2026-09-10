@@ -7,12 +7,11 @@
 
 #education-header{
     position: sticky;
-    margin-top: 10em;
+    margin-top: 40vh;
     top: 1.25em;
     align-self: flex-start;
     background-color: var(--paper);
     z-index: 1;
-    box-shadow: 0 1em 0 1rem var(--paper);
 }
 
 #education-list {
@@ -30,7 +29,29 @@
     }
 }
 
-.education-box {
+.dark-overlay {
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: 0.6;
+    animation: vibrance linear both;
+    animation-timeline: view();
+}
+@keyframes vibrance {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.education-card {
     position: relative;
     z-index: 0;
 
@@ -53,18 +74,14 @@
         box-shadow 0.2s ease;
 }
 
-/* Pop out on hover */
-.education-box:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(221, 0, 255, 0.3);
-}
-.education-box h2 {
+
+.education-card h2 {
     text-align: center;
 }
-.education-box ul {
+.education-card ul {
     padding: 1em;
 }
-.education-box img {
+.education-card img {
     width: 12em;
     margin: 2em;
     object-fit: contain;
@@ -72,7 +89,24 @@
 }
 
 @media (max-width: 1000px) {
-    .education-box img {
+    .education-card img {
         width: 10em;
     }
+}
+
+/* Gradient Colors */
+.education-card:nth-of-type(1){
+    background-image: linear-gradient(120deg,
+    rgba(0, 8, 255, 1) 0%, 
+    rgba(238, 0, 255, 1) 100%);
+}
+.education-card:nth-of-type(2){
+    background-image: linear-gradient(120deg,
+    rgba(179, 0, 255, 1) 0%, 
+    rgba(255, 0, 102, 1) 100%);
+}
+.education-card:nth-of-type(3){
+    background-image: linear-gradient(120deg,
+    rgba(255, 55, 0, 1) 0%, 
+    rgb(237, 158, 0) 100%);
 }
