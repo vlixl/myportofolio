@@ -3,13 +3,18 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 
-from main.models import Experience
+from main.models import Experience, Music
 
+GLOBAL_CONTEXT = {
+    "name": "Leow Vincent Vintizel",
+    "brand": "VLIXL",
+}
 
 def show_main(request):
-    context = {
-        "name": "Leow Vincent Vintizel",
-        "brand": "VLIXL",
+    context = GLOBAL_CONTEXT | {
+        "first_name": "Leow",
+        "middle_name": "Vincent",
+        "last_name": "Vintizel",
         "npm": "2506611856",
         "study_program": "S1 Ilmu Komputer",
         "bio": (
@@ -21,9 +26,18 @@ def show_main(request):
 
 
 def show_experience(request):
-    context = {
-        "name": "Leow Vincent Vintizel",
-        "brand": "VLIXL",
+    context = GLOBAL_CONTEXT | {
         "experience_list": Experience.objects.all(),
     }
     return render(request, "experience.html", context)
+
+def show_music(request):
+    context = GLOBAL_CONTEXT | {
+        "music_list": Music.objects.all(),
+    }
+    return render(request, "music.html", context)
+
+def show_education(request):
+    context = GLOBAL_CONTEXT | {
+    }
+    return render(request, "education.html", context)

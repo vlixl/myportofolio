@@ -1,210 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ name }} - Portfolio</title>
+{% extends "base.html" %}
+{% load static %}
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- STIX Two Text -->
-    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <!-- Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <!-- Source Serif 4 -->
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-    <!-- Playfair Display -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
+{% block title %}{{ name }} - Portfolio{% endblock %}
 
-    <!-- Icon -->
-     <link rel="icon" href="../static/img/logo.svg">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/static/css/default.css">
-    <link rel="stylesheet" href="/static/css/header-footer.css">
-    <link rel="stylesheet" href="/static/css/hero.css">
-    <link rel="stylesheet" href="/static/css/music.css">
+{% block style %}
     <link rel="stylesheet" href="/static/css/photography.css">
     <link rel="stylesheet" href="/static/css/fashion.css">
-    <!-- General Styles -->
-    <link rel="stylesheet" href="/static/css/style.css">
-
-</head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <a href="{% url 'main:show_main' %}" class="brand">
-                <img src="../static/img/logo.svg" alt="Vlixl logo">
-                <p>{{ brand }}</p>
-            </a>
-            <nav>
-                <a href="{% url 'main:show_main' %}">Profile</a>
-                <a href="{% url 'main:show_experience' %}">Experience</a>
-            </nav>
+    <link rel="stylesheet" href="/static/css/hero.css">
+{% endblock %}
+    
+{% block content %}
+    <section class="hero" id="profile">
+        <div class="container hero-grid">
+            <div class="hero-identity">
+                <p class="hero-kicker">
+                    Computer Science &middot; Universitas Indonesia
+                </p>
+                <h1 class="name">
+                    <span class="word">
+                        {% for char in first_name %}
+                            <span>{{ char }}</span>
+                        {% endfor %}
+                    </span>
+                    <span class="word">
+                        {% for char in middle_name %}
+                            <span>{{ char }}</span>
+                        {% endfor %}
+                    </span>
+                    <span class="word">
+                        {% for char in last_name %}
+                            <span>{{ char }}</span>
+                        {% endfor %}
+                    </span>
+                </h1>
+            </div>
+            <div class="hero-photo">
+                <div class="photo-block"></div>
+                <img class="avatar" src="/static/img/foto_diri.avif" alt="Photo of {{ name }}" loading="eager" fetchpriority="high">
+            </div>
+            <div class="hero-details">
+                <p class="bio">{{ bio }}</p>
+                <dl class="meta-list">
+                    <div class="meta-row">
+                        <dt>NPM</dt>
+                        <dd>{{ npm }}</dd>
+                    </div>
+                    <div class="meta-row">
+                        <dt>Program</dt>
+                        <dd>{{ study_program }}</dd>
+                    </div>
+                </dl>
+                <div class="social-links">
+                    <a href="https://github.com/vlixl">GitHub</a>
+                    <a href="https://www.linkedin.com/in/vlixl">LinkedIn</a>
+                    <a href="mailto:vlixl.tech@gmail.com">Email</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero" id="profile">
-            <div class="container hero-grid">
-                <div class="hero-identity">
-                    <p class="hero-kicker">Computer Science &middot; Universitas Indonesia</p>
-                    <h1 class="name">
-                        {{ name }}
-                    </h1>
-                </div>
-                <div class="hero-photo">
-                    <div class="photo-block"></div>
-                    <img class="avatar" src="/static/img/foto_diri.avif" alt="Photo of {{ name }}" loading="eager" fetchpriority="high">
-                </div>
-                <div class="hero-details">
-                    <p class="bio">{{ bio }}</p>
-                    <dl class="meta-list">
-                        <div class="meta-row">
-                            <dt>NPM</dt>
-                            <dd>{{ npm }}</dd>
-                        </div>
-                        <div class="meta-row">
-                            <dt>Program</dt>
-                            <dd>{{ study_program }}</dd>
-                        </div>
-                    </dl>
-                    <div class="social-links">
-                        <a href="https://github.com/vlixl">GitHub</a>
-                        <a href="https://www.linkedin.com/in/vlixl">LinkedIn</a>
-                        <a href="mailto:vlixl.tech@gmail.com">Email</a>
-                    </div>
-                </div>
+    <hr>
+
+    <section id="photography" class="container">
+        <h2>Photography</h2>
+        <p class="subtitle">Memories Worth Preserving</p>
+        <div id="gallery">
+            <div id="gallery-track">
+                <img src="../static/img/photos/bedroom.avif" loading="eager">
+                <img src="../static/img/photos/bible.avif" loading="eager">
+                <img src="../static/img/photos/bus-stop.avif" loading="eager">
+                <img src="../static/img/photos/cafe.avif" loading="eager">
+                <!-- Duplicates for smooth conveyor belt effect -->
+                <img src="../static/img/photos/bedroom.avif" loading="eager">
+                <img src="../static/img/photos/bible.avif" loading="eager">
+                <img src="../static/img/photos/bus-stop.avif" loading="eager">
+                <img src="../static/img/photos/cafe.avif" loading="eager">
             </div>
-        </section>
-
-        <hr>
-
-        <section id="music" class="container">
-            <h2>Music</h2>
-            <p class="subtitle">The Universal Expression of Humanity's Emotions</p>
-            <ul>
-
-                <li id="music-1">
-                    <div class="diamond-overlay-1"></div>
-                    <div class="diamond-overlay-2"></div>
-                    <div class="waveform">
-                        <span></span><span></span><span></span>
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div class="music-info">
-                        <p class="music-title">Revived in the Light</p>
-                        <p class="music-subtitle">A Renewed Hope in an Endless Fight</p>
-                        <audio src="../static/audio/Revived by the Light.mp3" controls controlsList="nodownload noplaybackrate noremoteplayback"></audio>
-                    </div>
-                </li>
-
-                <li id="music-2">
-                    <div class="diamond-overlay-1"></div>
-                    <div class="diamond-overlay-2"></div>
-                    <div class="waveform">
-                        <span></span><span></span><span></span>
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div class="music-info">
-                        <p class="music-title">Echo</p>
-                        <p class="music-subtitle">A call from the past to relay unto the future</p>
-                        <audio src="../static/audio/Echo Orchestra-2.mp3"controls controlsList="nodownload noplaybackrate noremoteplayback"></audio>
-                    </div>
-                </li>
-
-                <li id="music-3">
-                    <div class="diamond-overlay-1"></div>
-                    <div class="diamond-overlay-2"></div>
-                    <div class="waveform">
-                        <span></span><span></span><span></span>
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div class="music-info">
-                        <p class="music-title">Eternal Twilight</p>
-                        <p class="music-subtitle">Reminisce at the light of dusk</p>
-                        <audio src="../static/audio/Eternal Twilight-2.mp3"controls controlsList="nodownload noplaybackrate noremoteplayback"></audio>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="photography" class="container">
-            <h2>Photography</h2>
-            <p class="subtitle">Memories Worth Preserving</p>
-            <div id="gallery">
-                <div id="gallery-track">
-                    <img src="../static/img/photos/bedroom.avif" loading="eager">
-                    <img src="../static/img/photos/bible.avif" loading="eager">
-                    <img src="../static/img/photos/bus-stop.avif" loading="eager">
-                    <img src="../static/img/photos/cafe.avif" loading="eager">
-                    <!-- Duplicates for smooth conveyor belt effect -->
-                    <img src="../static/img/photos/bedroom.avif" loading="eager">
-                    <img src="../static/img/photos/bible.avif" loading="eager">
-                    <img src="../static/img/photos/bus-stop.avif" loading="eager">
-                    <img src="../static/img/photos/cafe.avif" loading="eager">
-                </div>
-                <div id="gallery-track">
-                    <img src="../static/img/photos/city-road.avif" loading="eager">
-                    <img src="../static/img/photos/dark-road.avif" loading="eager">
-                    <img src="../static/img/photos/forest.avif" loading="eager">
-                    <img src="../static/img/photos/orchid.avif" loading="eager">
-                    <!-- Duplicates for smooth conveyor belt effect -->
-                    <img src="../static/img/photos/city-road.avif" loading="eager">
-                    <img src="../static/img/photos/dark-road.avif" loading="eager">
-                    <img src="../static/img/photos/forest.avif" loading="eager">
-                    <img src="../static/img/photos/orchid.avif" loading="eager">
-                </div>
-                <div id="gallery-track">
-                    <img src="../static/img/photos/parking-lot.avif" loading="eager">
-                    <img src="../static/img/photos/ruby.avif" loading="eager">
-                    <img src="../static/img/photos/station.avif" loading="eager">
-                    <img src="../static/img/photos/ugm.avif" loading="eager">
-                    <!-- Duplicates for smooth conveyor belt effect -->
-                    <img src="../static/img/photos/parking-lot.avif" loading="eager">
-                    <img src="../static/img/photos/ruby.avif" loading="eager">
-                    <img src="../static/img/photos/station.avif" loading="eager">
-                    <img src="../static/img/photos/ugm.avif" loading="eager">
-                </div>
+            <div id="gallery-track">
+                <img src="../static/img/photos/city-road.avif" loading="eager">
+                <img src="../static/img/photos/dark-road.avif" loading="eager">
+                <img src="../static/img/photos/forest.avif" loading="eager">
+                <img src="../static/img/photos/orchid.avif" loading="eager">
+                <!-- Duplicates for smooth conveyor belt effect -->
+                <img src="../static/img/photos/city-road.avif" loading="eager">
+                <img src="../static/img/photos/dark-road.avif" loading="eager">
+                <img src="../static/img/photos/forest.avif" loading="eager">
+                <img src="../static/img/photos/orchid.avif" loading="eager">
             </div>
-        </section>
-        <hr>
-        <section id="fashion" class="container">
-            <div id="fashion-gallery">
-                <div id="fashion-gallery-left">
-                    <div id="fashion-title">
-                        <h2>Fashion</h2>
-                        <p>Elegance in Restraint</p>
-                    </div>
-                    <img id="white-portrait" src="../static/img/portraits/white-portrait.avif">
-                </div>
-                <div id="fashion-gallery-right">
-                    <img id="green-portrait" src="../static/img/portraits/green-portrait.avif">
-                    <img id="blue-portrait" src="../static/img/portraits/blue-portrait.avif">
-                    <img id="red-portrait" src="../static/img/portraits/red-portrait.avif">
-                </div>
-                
+            <div id="gallery-track">
+                <img src="../static/img/photos/parking-lot.avif" loading="eager">
+                <img src="../static/img/photos/ruby.avif" loading="eager">
+                <img src="../static/img/photos/station.avif" loading="eager">
+                <img src="../static/img/photos/ugm.avif" loading="eager">
+                <!-- Duplicates for smooth conveyor belt effect -->
+                <img src="../static/img/photos/parking-lot.avif" loading="eager">
+                <img src="../static/img/photos/ruby.avif" loading="eager">
+                <img src="../static/img/photos/station.avif" loading="eager">
+                <img src="../static/img/photos/ugm.avif" loading="eager">
             </div>
-        </section>
-        <hr>
-        <section id="logo-showcase" class="container">
-            <div class="brand-logo">
-                <img src="../static/img/logo.svg">
-                <p>VLIXL.COM</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 {{ name }}. Fakultas Ilmu Komputer, Universitas Indonesia.</p>
         </div>
-    </footer>
-</body>
-</html>
+    </section>
+
+    <hr>
+
+    <section id="fashion" class="container">
+        <div id="fashion-gallery">
+            <div id="fashion-gallery-left">
+                <div id="fashion-title">
+                    <h2>Fashion</h2>
+                    <p>Elegance in Restraint</p>
+                </div>
+                <img id="white-portrait" src="../static/img/portraits/white-portrait.avif">
+            </div>
+            <div id="fashion-gallery-right">
+                <img id="green-portrait" src="../static/img/portraits/green-portrait.avif">
+                <img id="blue-portrait" src="../static/img/portraits/blue-portrait.avif">
+                <img id="red-portrait" src="../static/img/portraits/red-portrait.avif">
+            </div>
+            
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="logo-showcase" class="container">
+        <div class="brand-logo">
+            <img src="../static/img/logo.svg">
+            <p>VLIXL.COM</p>
+        </div>
+    </section>
+{% endblock %}

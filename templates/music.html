@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ name }} - Music{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/music.css">
+{% endblock %}
+    
+{% block content %}
+    <section id="music" class="container">
+        <h1 class="section-header">Music</h1>
+        <p class="subtitle">The Universal Expression of Humanity's Emotions</p>
+        <ul>
+            {% for music in music_list %}
+                <li class="music-box">
+                    <div class="diamond-overlay-1"></div>
+                    <div class="diamond-overlay-2"></div>
+                    <div class="waveform">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="music-info">
+                        <h2 class="music-title">{{ music.title }}</h2>
+                        <p class="music-subtitle">{{ music.description }}</p>
+                        <audio src="{{ music.link }}" controls controlsList="nodownload noplaybackrate noremoteplayback"></audio>
+                    </div>
+                </li>
+            {% empty %}
+                <p>Kosong</p>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

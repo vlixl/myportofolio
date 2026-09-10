@@ -41,15 +41,19 @@
 
 /* === Name Section === */
 .name {
-    padding: 2rem 0 0 0;
-  
+    margin-top: 2rem;
+    font-size: inherit;
 }
-.name span {
-    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
+
+.word {
+    display: inline-block;
+    margin: 0 0.3rem;
+}
+
+.word > span {
+    font-family: "STIX Two Text", "Times New Roman", Times, serif;
     font-weight: normal;
-    /* font-style: italic; */
-    
-    letter-spacing: -0.02em;
+    letter-spacing: 0.03em;
     font-size: clamp(3.8rem, 8vw, 5rem);
 
     background: linear-gradient(
@@ -62,7 +66,9 @@
     -webkit-background-clip: text;
 
     color: white;
-    
+
+    display: inline-block;
+    margin: 0 -0.05em;
 
     transition:
         color 0.2s ease,
@@ -70,13 +76,8 @@
         transform 0.2s ease;
 }
 
-.name span:hover {
+.word > span:hover {
     color: transparent;
-}
-.word {
-    white-space: nowrap;
-    display: inline-block;
-    margin: -1rem 0.3rem;
 }
 
 /* === Bio Paragraph === */
@@ -216,3 +217,4 @@
         justify-content: flex-start;
     }
 }
+

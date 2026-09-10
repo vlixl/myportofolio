@@ -4,10 +4,6 @@
 ==================================================
 */
 
-img {
-    object-fit: cover;
-}
-
 html, body {
     scroll-behavior: smooth;    /* Smooth scroll */
     scrollbar-width: none;      /* Remove scrollbar */
@@ -50,9 +46,8 @@ body::-webkit-scrollbar {
     --line: #e3d9c9; 
 
     /* Other Settings */
-    --radius: 4px;
+    --radius: 2.5em;
     --radius-max: 9999px;
-    --letter-spacing: -0.05em;
 }
 /* For gradients: https://cssgradient.io/ */
 
@@ -69,7 +64,32 @@ body {
     line-height: 1.6;
 }
 
-h2 {
+img {
+    object-fit: cover;
+}
+
+h1, h2, h3 {
+    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
+    
+    line-height: 1;
+    font-weight: normal;
+}
+
+h1 { 
+    font-size: 3.5em; 
+    letter-spacing: -0.05em;
+}
+h2 { 
+    font-size: 2.5em; 
+    letter-spacing: -0.05em;
+}
+h3 { 
+    font-size: 1.5em; 
+    letter-spacing: 0em;
+}
+
+.section-header {
+    margin-top: 10vh;
     font-family: 'Times New Roman', Times, serif;
     font-weight: normal;
     letter-spacing: -0.06em;
@@ -86,7 +106,6 @@ hr {
 }
 
 .subtitle {
-    margin-top: -4vh;
     margin-bottom: 4vh;
     color: var(--text-muted);
     font-size: 1.2em;
@@ -95,4 +114,115 @@ hr {
 .container {
     width: 80vw;
     margin: 0 auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* 
+==================================================
+    NAVBAR HEADER
+==================================================
+*/
+
+/* Line Break */
+.site-header { 
+    border-bottom: 1px solid var(--line);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+}
+
+.site-header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.site-header nav a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+
+    background-image: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    transition: color 0.3s ease;
+}
+
+.site-header nav a:hover {
+    color: transparent;
+}
+
+/* Brand Logo & Text */
+.brand {
+    display: flex;
+    text-decoration: none;
+    font-family: "Outfit", "Inter", sans-serif;
+    font-weight: bolder;
+    letter-spacing: 0.2em;
+
+}
+.brand p {
+    padding-left: 2vh;
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.brand img {
+    width: 3vh;
+    height: 3vh;
+}
+
+/* 
+==================================================
+    FOOTER
+==================================================
+*/
+
+.site-footer {
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+}
+
+/* Logo */
+
+.brand-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10rem;
+}
+
+.brand-logo img{
+    width: 20vw;
+    aspect-ratio: 1;
+    display: none;
+}
+.brand-logo p {
+    font-family: "Outfit", "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 10vw;
+    letter-spacing: 0.5vw;
+    margin: 5vw;
+    
+    background-image: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
