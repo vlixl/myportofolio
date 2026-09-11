@@ -1,5 +1,7 @@
 from main.models import Music
 
+Music.objects.all().delete()
+
 Music.objects.create(
     title="Revived in the Light",
     description="A Renewed Hope in an Endless Fight",
@@ -16,13 +18,4 @@ Music.objects.create(
     title="Eternal Twilight",
     description="Reminisce at the light of dusk",
     link="../static/audio/Eternal Twilight-2.mp3",
-)
-
-from main.models import Education
-
-Education.objects.create(
-    title="SD Santa Maria Purwokerto",
-    description_1="Lorem ipsum dolor sit amet.",
-    description_2="Lorem ipsum dolor sit amet.",
-    description_3="Lorem ipsum dolor sit amet.",
 )

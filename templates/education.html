@@ -14,45 +14,19 @@
             <p class="subtitle">The past predicts the future</p>
         </div>
         <ol id="education-list">
-            <li class="education-card">
-                <img src="../static/img/education/logo_sd.png">
-                <h2>SD Santa Maria Purwokerto</h2>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                </ul>
-            </li>
-            <li class="education-card">
-                <div class="dark-overlay"></div>
-                <img src="../static/img/education/logo_smp.png">
-                <h2>SMP Susteran Purwokerto</h2>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                </ul>
-            </li>
-            <li class="education-card">
-                <div class="dark-overlay"></div>
-                <img src="../static/img/education/logo_sma.jpeg">
-                <h2>SMA Sedes Sapientiae Jambu</h2>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                </ul>
-            </li>
-            <li class="education-card">
-                <div class="dark-overlay"></div>
-                <img src="../static/img/education/logo_ui.webp">
-                <h2>Universitas Indonesia</h2>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                </ul>
-            </li>
+            {% for education in education_list %}
+                <li class="education-card">
+                    <div class="dark-overlay"></div>
+                    <img src="{{ education.logo }}">
+                    <h2>{{ education.school }}</h2>
+                    <p class="education-year">
+                        {{ education.start_year }} - {{ education.end_year }}
+                    </p>
+                    <p class="education-description">
+                        {{ education.description }}
+                    </p>
+                </li>
+            {% endfor %}
         </ol>
     </section>
 {% endblock %}

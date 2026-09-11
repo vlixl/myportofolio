@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 
-from main.models import Experience, Music
+from main.models import Experience, Music, Education
 
 GLOBAL_CONTEXT = {
     "name": "Leow Vincent Vintizel",
@@ -39,5 +39,6 @@ def show_music(request):
 
 def show_education(request):
     context = GLOBAL_CONTEXT | {
+        "education_list": Education.objects.all(),
     }
     return render(request, "education.html", context)

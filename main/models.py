@@ -39,11 +39,40 @@ class Music(models.Model):
 
 class Education(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField(max_length=255)
-    description_1 = models.TextField()
-    description_2 = models.TextField()
-    description_3 = models.TextField()
-    thumbnail = models.URLField(blank=True, null=True)
 
+    school = models.CharField(max_length=255)
+
+    start_year = models.PositiveSmallIntegerField()
+    end_year = models.PositiveSmallIntegerField(null=True, blank=True)
+    grade = models.DecimalField(
+            max_digits=5,
+            decimal_places=2,
+            null=True,
+            blank=True
+        )
+
+    description = models.TextField()
+    
+    logo = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.school
+
+    @property
+    def is_ongoing(self):
+        return self.end_year is None
+
+class Achievement(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    title = models.CharField(max_length=255)
+    event = models.CharField(max_length=255, blank=True)
+    organization = models.CharField(max_length=255, blank=True)
+
+    month = models.PositiveSmallIntegerField()
+    year = models.PositiveSmallIntegerField()
+
+    description = models.TextField()
+    
     def __str__(self):
         return self.title

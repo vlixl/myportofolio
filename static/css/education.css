@@ -37,6 +37,7 @@
     animation: vibrance linear both;
     animation-timeline: view();
 }
+
 @keyframes vibrance {
     0% {
         opacity: 1;
@@ -55,10 +56,10 @@
     position: relative;
     z-index: 0;
 
-    list-style-position: inside;
     border-radius: var(--radius);
     padding: 5em 3em;
     margin: 5em 0;
+
     background-color:rgb(38, 38, 38);
     list-style: none;
 
