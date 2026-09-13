@@ -4,7 +4,7 @@
 {% block title %}{{ name }} - Education{% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="/static/css/education.css">
+    <link rel="stylesheet" href="{% static 'css/education.css' %}">
 {% endblock %}
     
 {% block content %}
@@ -37,6 +37,4 @@
             {% endfor %}
         </ol>
     </section>
-
-    
 {% endblock %}

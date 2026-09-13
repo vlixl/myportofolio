@@ -4,8 +4,8 @@
 {% block title %}{{ name }} - Portfolio{% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="/static/css/hero.css">
-    <link rel="stylesheet" href="/static/css/achievements.css">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+    <link rel="stylesheet" href="{% static 'css/achievements.css' %}">
 {% endblock %}
     
 {% block content %}
@@ -35,7 +35,7 @@
             </div>
             <div class="hero-photo">
                 <div class="photo-block"></div>
-                <img class="avatar" src="/static/img/portraits/foto_diri.avif" alt="Photo of {{ name }}" loading="eager" fetchpriority="high">
+                <img class="avatar" src="{% static 'img/portraits/foto_diri.avif' %}" alt="Photo of {{ name }}" loading="eager" fetchpriority="high">
             </div>
             <div class="hero-details">
                 <p class="bio">{{ bio }}</p>
@@ -104,7 +104,13 @@
 
     <section id="logo-showcase" class="container">
         <div class="brand-logo">
-            <img src="../static/img/logo.svg">
+            <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+                <clipPath id="logo-shape" clipPathUnits="objectBoundingBox">
+                    <path transform="scale(.25)" d="M0 2V0H1V1.586l1 1 1-1V0H4V2L2 4zm0 .707 1 1V4H0zm3 1 1-1V4H3zm-.293-3L2 1.414 1.293.707 2 0z"/>
+                </clipPath>
+            </svg>
+
+            <div class="logo" role="img" aria-label="Vlixl logo"></div>
             <p>VLIXL.COM</p>
         </div>
     </section>

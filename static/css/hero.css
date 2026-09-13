@@ -223,3 +223,30 @@
     }
 }
 
+
+/* Logo */
+
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10rem;
+}
+
+.logo {
+    width: 50vmin;
+    height:50vmin;
+}
+.brand-logo p {
+    font-family: "Outfit", "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 10vw;
+    letter-spacing: 0.5vw;
+    margin: 5vw;
+    
+    background-image: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}

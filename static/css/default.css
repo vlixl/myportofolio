@@ -179,6 +179,12 @@ hr {
 }
 
 /* Brand Logo & Text */
+.logo {
+    width: 3vh;
+    height: 3vh;
+    background: linear-gradient(60deg, #dd00ff, #ff8800);
+    clip-path: url(#logo-shape);
+}
 .brand {
     display: flex;
     text-decoration: none;
@@ -211,30 +217,3 @@ hr {
     border-top: 1px solid var(--line);
 }
 
-/* Logo */
-
-.brand-logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 10rem;
-}
-
-.brand-logo img{
-    width: 20vw;
-    aspect-ratio: 1;
-    display: none;
-}
-.brand-logo p {
-    font-family: "Outfit", "Inter", sans-serif;
-    font-weight: bold;
-    font-size: 10vw;
-    letter-spacing: 0.5vw;
-    margin: 5vw;
-    
-    background-image: var(--bright-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}

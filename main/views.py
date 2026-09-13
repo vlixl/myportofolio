@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 
-from main.models import Experience, Music, Education, Achievement
+from main.models import Music, Education, Achievement, Photo
 
 GLOBAL_CONTEXT = {
     "name": "Leow Vincent Vintizel",
@@ -35,6 +35,10 @@ def show_main(request):
 def show_art(request):
     context = GLOBAL_CONTEXT | {
         "music_list": Music.objects.all(),
+        "photo_tracks":[
+            Photo.objects.filter(track=number).order_by("position")
+            for number in range(1, 4)
+        ],
     }
     return render(request, "art.html", context)
 
