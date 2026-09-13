@@ -95,6 +95,8 @@
                             <p>{{ achievement.description }}</p>
                         </div>
                     </article>
+                {% empty %}
+                    <p>Wow, such empty :3</p>
                 {% endfor %}
                 </div>
         </div>
