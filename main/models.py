@@ -85,3 +85,11 @@ class Achievement(models.Model):
     
     def __str__(self):
         return f"{self.award} {self.award_label}, {self.category}"
+
+class Photo(models.Model):
+    
+    image = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+
+    track = models.PositiveSmallIntegerField()
+    position = models.PositiveSmallIntegerField()

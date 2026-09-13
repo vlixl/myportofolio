@@ -141,7 +141,12 @@
     /* Pop Out Animation */
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease;    
+        box-shadow 0.2s ease; 
+    
+    /* Button flash fix */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 .social-links a::before {
