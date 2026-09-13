@@ -1,4 +1,5 @@
 from django.db import models
+import calendar
 
 # Create your models here.
 import uuid
@@ -63,16 +64,24 @@ class Education(models.Model):
         return self.end_year is None
 
 class Achievement(models.Model):
+    MONTH_CHOICES = [
+        (number, calendar.month_name[number])
+        for number in range(1, 13)
+    ]
+    
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    award = models.CharField(max_length=255)
+    award_label = models.CharField(max_length=255) 
 
-    title = models.CharField(max_length=255)
+    category = models.CharField(max_length=255)
+    month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
+    year = models.PositiveSmallIntegerField()
+    
     event = models.CharField(max_length=255, blank=True)
     organization = models.CharField(max_length=255, blank=True)
-
-    month = models.PositiveSmallIntegerField()
-    year = models.PositiveSmallIntegerField()
 
     description = models.TextField()
     
     def __str__(self):
-        return self.title
+        return f"{self.award} {self.award_label}, {self.category}"

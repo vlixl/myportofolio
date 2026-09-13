@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ name }} - Music{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/music.css">
+    <link rel="stylesheet" href="/static/css/photography.css">
+    <link rel="stylesheet" href="/static/css/fashion.css">
+{% endblock %}
+    
+{% block content %}
+    <section id="photography" class="container">
+        <h2 class="section-header">Photography</h2>
+        <p class="section-subheader">Memories Worth Preserving</p>
+        <div id="gallery">
+            <div id="gallery-track">
+                <img src="../static/img/photos/bedroom.avif" loading="eager">
+                <img src="../static/img/photos/bible.avif" loading="eager">
+                <img src="../static/img/photos/bus-stop.avif" loading="eager">
+                <img src="../static/img/photos/cafe.avif" loading="eager">
+                <!-- Duplicates for smooth conveyor belt effect -->
+                <img src="../static/img/photos/bedroom.avif" loading="eager">
+                <img src="../static/img/photos/bible.avif" loading="eager">
+                <img src="../static/img/photos/bus-stop.avif" loading="eager">
+                <img src="../static/img/photos/cafe.avif" loading="eager">
+            </div>
+            <div id="gallery-track">
+                <img src="../static/img/photos/city-road.avif" loading="eager">
+                <img src="../static/img/photos/dark-road.avif" loading="eager">
+                <img src="../static/img/photos/forest.avif" loading="eager">
+                <img src="../static/img/photos/orchid.avif" loading="eager">
+                <!-- Duplicates for smooth conveyor belt effect -->
+                <img src="../static/img/photos/city-road.avif" loading="eager">
+                <img src="../static/img/photos/dark-road.avif" loading="eager">
+                <img src="../static/img/photos/forest.avif" loading="eager">
+                <img src="../static/img/photos/orchid.avif" loading="eager">
+            </div>
+            <div id="gallery-track">
+                <img src="../static/img/photos/parking-lot.avif" loading="eager">
+                <img src="../static/img/photos/ruby.avif" loading="eager">
+                <img src="../static/img/photos/station.avif" loading="eager">
+                <img src="../static/img/photos/ugm.avif" loading="eager">
+                <!-- Duplicates for smooth conveyor belt effect -->
+                <img src="../static/img/photos/parking-lot.avif" loading="eager">
+                <img src="../static/img/photos/ruby.avif" loading="eager">
+                <img src="../static/img/photos/station.avif" loading="eager">
+                <img src="../static/img/photos/ugm.avif" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="music" class="container">
+        <h1 class="section-header">Music</h1>
+        <p class="section-subheader">The Universal Expression of Humanity's Emotions</p>
+        <ul>
+            {% for music in music_list %}
+                <li class="music-card">
+                    <div class="diamond-overlay-1"></div>
+                    <div class="diamond-overlay-2"></div>
+                    <div class="waveform">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="music-info">
+                        <h2 class="music-title">{{ music.title }}</h2>
+                        <p class="music-subtitle">{{ music.description }}</p>
+                        <audio src="{{ music.link }}" controls controlsList="nodownload noplaybackrate noremoteplayback"></audio>
+                    </div>
+                </li>
+            {% empty %}
+                <p>Kosong</p>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <hr>
+
+    <section id="fashion" class="container">
+        <div id="fashion-gallery">
+            <div id="fashion-gallery-left">
+                <div id="fashion-title">
+                    <h2>Fashion</h2>
+                    <p>Elegance in Restraint</p>
+                </div>
+                <img id="white-portrait" src="../static/img/portraits/white-portrait.avif">
+            </div>
+            <div id="fashion-gallery-right">
+                <img id="green-portrait" src="../static/img/portraits/green-portrait.avif">
+                <img id="blue-portrait" src="../static/img/portraits/blue-portrait.avif">
+                <img id="red-portrait" src="../static/img/portraits/red-portrait.avif">
+            </div>
+            
+        </div>
+    </section>
+
+    <hr>
+{% endblock %}

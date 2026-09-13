@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 
-from main.models import Experience, Music, Education
+from main.models import Experience, Music, Education, Achievement
 
 GLOBAL_CONTEXT = {
     "name": "Leow Vincent Vintizel",
@@ -21,21 +21,22 @@ def show_main(request):
             "CS Student @ UI, studying theoretical computer science. I’m someone who enjoys learning by making. "
             "Most of what I do starts with curiosity and turns into something creative."
         ),
+        "achievement_list": Achievement.objects.all(),
     }
     return render(request, "index.html", context)
 
 
-def show_experience(request):
-    context = GLOBAL_CONTEXT | {
-        "experience_list": Experience.objects.all(),
-    }
-    return render(request, "experience.html", context)
+# def show_experience(request):
+#     context = GLOBAL_CONTEXT | {
+#         "experience_list": Experience.objects.all(),
+#     }
+#     return render(request, "experience.html", context)
 
-def show_music(request):
+def show_art(request):
     context = GLOBAL_CONTEXT | {
         "music_list": Music.objects.all(),
     }
-    return render(request, "music.html", context)
+    return render(request, "art.html", context)
 
 def show_education(request):
     context = GLOBAL_CONTEXT | {

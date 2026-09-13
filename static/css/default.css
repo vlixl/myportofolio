@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
 :root {
     /* Text Colors */
     --ink: #ffffff;
-    --text-muted: #bbbbbd;
+    --text-muted: #d5d5d5;
     --text-highlight: rgb(221, 0, 255);
 
     /* Gradients */
@@ -81,11 +81,15 @@ h1 {
 }
 h2 { 
     font-size: 2.5em; 
-    letter-spacing: -0.05em;
+    letter-spacing: -0.03em;
 }
 h3 { 
     font-size: 1.5em; 
     letter-spacing: 0em;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
 }
 
 .section-header {
@@ -93,7 +97,19 @@ h3 {
     font-family: 'Times New Roman', Times, serif;
     font-weight: normal;
     letter-spacing: -0.06em;
-    font-size: clamp(6rem, 10vw, 15rem);
+    font-size: clamp(2.5rem, 20vw, 10rem);
+    overflow-wrap: anywhere;
+}
+.section-subheader {
+    margin-top: 0.75rem;
+    margin-bottom: 4vh;
+
+    font-weight: normal;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.5;
+
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
 }
 
 hr {
@@ -105,11 +121,7 @@ hr {
     margin: 25vh 0;
 }
 
-.subtitle {
-    margin-bottom: 4vh;
-    color: var(--text-muted);
-    font-size: 1.2em;
-}
+
 
 .container {
     width: 80vw;

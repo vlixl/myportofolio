@@ -4,9 +4,8 @@
 {% block title %}{{ name }} - Portfolio{% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="/static/css/photography.css">
-    <link rel="stylesheet" href="/static/css/fashion.css">
     <link rel="stylesheet" href="/static/css/hero.css">
+    <link rel="stylesheet" href="/static/css/achievements.css">
 {% endblock %}
     
 {% block content %}
@@ -61,63 +60,43 @@
 
     <hr>
 
-    <section id="photography" class="container">
-        <h2>Photography</h2>
-        <p class="subtitle">Memories Worth Preserving</p>
-        <div id="gallery">
-            <div id="gallery-track">
-                <img src="../static/img/photos/bedroom.avif" loading="eager">
-                <img src="../static/img/photos/bible.avif" loading="eager">
-                <img src="../static/img/photos/bus-stop.avif" loading="eager">
-                <img src="../static/img/photos/cafe.avif" loading="eager">
-                <!-- Duplicates for smooth conveyor belt effect -->
-                <img src="../static/img/photos/bedroom.avif" loading="eager">
-                <img src="../static/img/photos/bible.avif" loading="eager">
-                <img src="../static/img/photos/bus-stop.avif" loading="eager">
-                <img src="../static/img/photos/cafe.avif" loading="eager">
-            </div>
-            <div id="gallery-track">
-                <img src="../static/img/photos/city-road.avif" loading="eager">
-                <img src="../static/img/photos/dark-road.avif" loading="eager">
-                <img src="../static/img/photos/forest.avif" loading="eager">
-                <img src="../static/img/photos/orchid.avif" loading="eager">
-                <!-- Duplicates for smooth conveyor belt effect -->
-                <img src="../static/img/photos/city-road.avif" loading="eager">
-                <img src="../static/img/photos/dark-road.avif" loading="eager">
-                <img src="../static/img/photos/forest.avif" loading="eager">
-                <img src="../static/img/photos/orchid.avif" loading="eager">
-            </div>
-            <div id="gallery-track">
-                <img src="../static/img/photos/parking-lot.avif" loading="eager">
-                <img src="../static/img/photos/ruby.avif" loading="eager">
-                <img src="../static/img/photos/station.avif" loading="eager">
-                <img src="../static/img/photos/ugm.avif" loading="eager">
-                <!-- Duplicates for smooth conveyor belt effect -->
-                <img src="../static/img/photos/parking-lot.avif" loading="eager">
-                <img src="../static/img/photos/ruby.avif" loading="eager">
-                <img src="../static/img/photos/station.avif" loading="eager">
-                <img src="../static/img/photos/ugm.avif" loading="eager">
-            </div>
-        </div>
-    </section>
+    <section id="achievements" class="container">
+        <h1 class="section-header">Achievements</h1>
+        <p class="section-subheader">Recognition in mathematics, public speaking, and arts.</p>
 
-    <hr>
+        <div class="achievement-board">
 
-    <section id="fashion" class="container">
-        <div id="fashion-gallery">
-            <div id="fashion-gallery-left">
-                <div id="fashion-title">
-                    <h2>Fashion</h2>
-                    <p>Elegance in Restraint</p>
+            <article class="achievement-feature">
+                <p id="achievement-meta">
+                    Academic record
+                </p>
+                <div class="achievement-score">
+                    4.00
                 </div>
-                <img id="white-portrait" src="../static/img/portraits/white-portrait.avif">
-            </div>
-            <div id="fashion-gallery-right">
-                <img id="green-portrait" src="../static/img/portraits/green-portrait.avif">
-                <img id="blue-portrait" src="../static/img/portraits/blue-portrait.avif">
-                <img id="red-portrait" src="../static/img/portraits/red-portrait.avif">
-            </div>
-            
+                <div class="achievement-caption">
+                    <h3 id="gpa-title">Grade point average</h3>
+                    <p>Computer Science · Universitas Indonesia</p>
+                </div>
+            </article>
+
+            <div class="achievement-list">
+                {% for achievement in achievement_list %}
+                    <article class="achievement-row">
+                        <h2 class="award-result">
+                            <span>{{ achievement.award }}</span>
+                            {{ achievement.award_label }}
+                        </h2>
+                        <div class="award-detail">
+                            <p>
+                                {{ achievement.category }} · {{ achievement.get_month_display }} {{ achievement.year }}
+                            </p>
+                            <h3>{{ achievement.event }}</h3>
+                            <p>{{ achievement.organization }}</p>
+                            <p>{{ achievement.description }}</p>
+                        </div>
+                    </article>
+                {% endfor %}
+                </div>
         </div>
     </section>
 
@@ -129,4 +108,5 @@
             <p>VLIXL.COM</p>
         </div>
     </section>
+
 {% endblock %}

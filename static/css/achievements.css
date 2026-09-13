@@ -1,0 +1,167 @@
+/* Layout */
+
+.achievement-board {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 10vh 0;
+}
+
+@media (max-width: 1000px) {
+    .achievement-board {
+        flex-direction: column;
+    }
+}
+
+#achievements h1{
+    font-size: clamp(2rem, 15vw, 8rem);
+    white-space: nowrap;
+    overflow-wrap: normal;
+}
+
+/* GPA Section */
+
+.achievement-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+
+    flex: 1;
+    min-width: 0;
+    min-height: 36rem;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    position: sticky;
+    top: 6rem;
+
+    background: linear-gradient(60deg,
+        rgba(221, 0, 255, 1) 0%,
+        rgba(255, 136, 0, 1) 100%);;
+}
+
+
+.achievement-score {
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(5rem, 9vw, 10rem);
+    font-weight: bolder;
+}
+
+.achievement-caption {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.achievement-caption h3 {
+    margin: 0.5rem 0;
+
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.achievement-caption p {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+    .achievement-feature {
+        flex: none;
+        width: 100%;
+        position: static;
+        min-height: 28rem;
+    }
+
+    .achievement-score {
+        font-size: clamp(5rem, 18vw, 10rem);
+    }
+}
+
+/* AWARDS SECTION */
+
+.achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 2;
+}
+
+.achievement-row {
+    display: flex;
+  
+    gap: 2rem;
+    padding: 3rem;
+
+    background-color: #0f1118;
+    border-left: 3px solid #ff538e;
+}
+
+.award-meta {
+    color: var(--text-muted);
+}
+
+.award-result {
+    flex: 0 0 10rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.award-result {
+    font-size: 3rem;
+    line-height: 1;
+
+    /* Color */
+    background: linear-gradient(80deg, 
+    #ff538e, #ffd428);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    margin-top: 0.5em;
+}
+
+.award-result span {
+    display: block;
+    font-size: 4.5rem;
+    font-weight: 400; 
+}
+
+.award-detail h3 {
+    margin: 1em 0;
+    font-size: 2em;
+    line-height: 1.2;
+}
+
+.award-detail p {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+    .achievement-list {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .achievement-row {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .award-result {
+        flex-basis: auto;
+    }
+}

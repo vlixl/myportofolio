@@ -1,0 +1,3 @@
+To import the data, open the terminal, and type:
+
+python manage.py shell < data/all_data.py

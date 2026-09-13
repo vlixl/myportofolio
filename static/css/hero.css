@@ -41,7 +41,7 @@
 
 /* === Name Section === */
 .name {
-    margin-top: 2rem;
+    margin-top: 3.5rem;
     font-size: inherit;
 }
 
@@ -54,7 +54,7 @@
     font-family: "STIX Two Text", "Times New Roman", Times, serif;
     font-weight: normal;
     letter-spacing: 0.03em;
-    font-size: clamp(3.8rem, 8vw, 5rem);
+    font-size: clamp(3.5rem, 11vw, 5.5rem);
 
     background: linear-gradient(
         0deg,
