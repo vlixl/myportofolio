@@ -53,6 +53,25 @@ Namun, terdapat pula berbagai keterbatasan dalam AI yang saya temukan:
 - Hal ini mengorbankan integritas desain dari website. Meskipun Material Design Google terlihat baik pada konteksnya, terdapat situasi-situasi di mana audio control tersebut tidak terlihat sesuai pada tempatnya.
 - Maka, fungsionalitas dinamis yang saya inginkan adalah tombol play/pause sendiri yang dirancang menggunakan svg dari masing-masing icon, dan menggunakan pemrograman dinamis untuk memainkan audio ketika tombol tersebut diaktifkan.
 
+## Tugas 2
+
+### Pertanyaan Refleksi
+
+1. Jelaskan alur yang terjadi ketika pengguna membuka halaman portofolio baru, mulai dari permintaan yang diterima proyek hingga data ditampilkan pada browser. Dalam jawabanmu, jelaskan peran urls.py proyek, urls.py aplikasi, view, model, dan template.
+2. Mengapa data untuk bagian portofolio baru sebaiknya disimpan pada model dan tidak ditulis langsung di dalam template? Jelaskan dampaknya terhadap kemudahan pemeliharaan dan pengembangan aplikasi.
+3. Apa perbedaan fungsi makemigrations dan migrate pada Django? Berikan contoh perubahan model yang mengharuskanmu menjalankan kedua perintah tersebut.
+
+### Jawaban Pertanyaan Refleksi
+
+1. Ketika pengguna membuka halaman portofolio, browser mengirimkan permintaan HTTP ke server Django. Django mencocokkan URL permintaan dengan pola pada urls.py proyek. View menerima permintaan dan menjalankan logika yang diperlukan, misalnya mengambil data pendidikan melalui model Education. Model mendefinisikan struktur data dan menyediakan akses ke database melalui ORM Django. View kemudian meneruskan data tersebut sebagai context ke template. Template mengatur penyajian data menggunakan HTML serta tag dan variabel template Django. Hasil render dikembalikan sebagai respons HTTP, lalu browser menampilkan halaman tersebut.
+
+2. Data portofolio sebaiknya disimpan melalui model agar pengelolaan data terpisah dari pengaturan tampilan. Jika data ditulis langsung di template, setiap penambahan atau perubahan informasi mengharuskan kita mengedit HTML. Cara tersebut menyulitkan pemeliharaan, terutama ketika data semakin banyak atau digunakan di beberapa halaman. Dengan model, data dapat dikelola melalui Django admin atau fitur pengelolaan data tanpa mengubah template. Field structure dan aturan-aturan validasi juga dapat didefinisikan dengan mudah dan terpusat. Pemisahan ini memudahkan pengembangan fitur seperti pencarian, pengurutan, penyaringan, dll. Data yang sama juga dapat digunakan oleh beberapa view dengan tampilan yang berbeda.
+
+3. makemigrations membuat file-file migrations berdasarkan perbedaan antara definisi model saat ini dan keadaan model yang tercatat dalam berkas migrasi sebelumnya. File-file tersebut berisi perubahan struktur database, tetapi belum menerapkannya ke database. Sementara itu, migrate menerapkan migrasi yang belum dijalankan ke database, sesuai urutan dependensinya. Contohnya, ketika saya menambahkan field description = models.TextField(blank=True, default="") pada model Education, saya menjalankan `python manage.py makemigrations` untuk membuat berkas migrasi penambahan field. Setelah itu, saya menjalankan `python manage.py migrate` untuk menambahkan kolom tersebut pada tabel yang terkait di database.
+
+### Penggunaan AI Tugas 2
+
+Dalam pengerjaan tugas, saya menggunakan AI untuk memahami konsep-konsep pada django. Saya juga menggunakan AI untuk mencari inspirasi-inspirasi desain. Sejauh ini, kekurangan AI sama dengan tugas 1, yakni kurang dapat memahami konteks proyek.
 
 
 # Update Mingguan
@@ -71,3 +90,7 @@ Ini adalah catatan personal yang digunakan hanya untuk keperluan pribadi.
 > ```
 
 > Git rusak terus. Harus membuat catatan cara menggunakan Git dan GitHub.
+
+## Minggu 2
+
+> Tidak ada catatan
