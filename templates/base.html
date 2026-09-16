@@ -26,6 +26,7 @@
     
     <!-- Default tylesheets -->
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block style %}{% endblock %}
 
 </head>
@@ -40,6 +41,7 @@
                 <a id="profile-link" href="{% url 'main:show_main' %}">Profile</a>
                 <a href="{% url 'main:show_art' %}">Art</a>
                 <a href="{% url 'main:show_education' %}">Education</a>
+                <a href="{% url 'main:show_projects' %}">Projects</a>
             </nav>
         </div>
     </header>

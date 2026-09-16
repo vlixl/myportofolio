@@ -152,3 +152,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+# IMPLEMENTASI FORM
+CSRF_TRUSTED_ORIGINS = ["https://leow-vincent-myportofolio.pws.cs.ui.ac.id"]
