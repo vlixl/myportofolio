@@ -93,7 +93,21 @@
                             <h3>{{ achievement.event }}</h3>
                             <p>{{ achievement.organization }}</p>
                             <p>{{ achievement.description }}</p>
-                            
+                            <div class="achievement-form">
+                                <a href="{% url 'main:update_achievement' achievement.id %}" class="edit-achievement">
+                                Edit
+                                </a>
+
+                                <form
+                                    action="{% url 'main:delete_achievement' achievement.id %}"
+                                    method="POST"
+                                >
+                                    {% csrf_token %}
+                                    <button type="submit" class="delete-achievement">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </article>
                 {% empty %}

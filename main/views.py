@@ -120,33 +120,7 @@ def delete_project(request, project_id):
 
 # Achievements
 
-def verify_achievement_request(request, type, achievement_id):
-
-    # Future Verification System Setup
-
-
-    
-    match type:
-        case 'create_achievement':
-            return create_achievement_verified(request)
-        case 'update_achievement':
-            return update_achievement_verified(request, achievement_id)
-        case 'delete_achievement':
-            return delete_achievement_verified(request, achievement_id)
-
 def create_achievement(request):
-    return verify_achievement_request(
-        request, 'create_achievement', 0)
-
-def update_achievement(request, achievement_id):
-    return verify_achievement_request(
-        request, 'update_achievement', achievement_id)
-
-def delete_achievement(request, achievement_id):
-    return verify_achievement_request(
-        request, 'delete_achievement', achievement_id)
-
-def create_achievement_verified(request):
    
     form = AchievementForm(request.POST or None)
 
@@ -160,7 +134,7 @@ def create_achievement_verified(request):
 
     return render(request, "achievement_form.html", context)
 
-def update_achievement_verified(request, achievement_id):
+def update_achievement(request, achievement_id):
     achievement = get_object_or_404(
         Achievement,
         pk=achievement_id
@@ -185,7 +159,7 @@ def update_achievement_verified(request, achievement_id):
         context
     )
 
-def delete_achievement_verified(request, achievement_id):
+def delete_achievement(request, achievement_id):
     achievement = get_object_or_404(
         Achievement,
         pk=achievement_id
