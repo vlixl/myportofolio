@@ -1,6 +1,6 @@
 from django.forms import ModelForm, TextInput, Textarea, URLInput
 
-from main.models import Project
+from main.models import Project, Achievement
 
 class ProjectForm(ModelForm):
     class Meta:
@@ -49,4 +49,30 @@ class ProjectForm(ModelForm):
                     "placeholder": "https://drive.google.com/thumbnail?id=...&sz=w1000",
                 }
             ),
+        }
+
+class AchievementForm(ModelForm):
+    class Meta:
+        model = Achievement
+
+        fields = [
+            "award",
+            "award_label",
+            "category",
+            "month",
+            "year",
+            "event",
+            "organization",
+            "description",
+        ]
+
+        labels = {
+            "award": "Award",
+            "award_label": "Award Label",
+            "category": "Category",
+            "month": "Month",
+            "year": "Year",
+            "event": "Event",
+            "organization": "Organization",
+            "description": "Description",
         }

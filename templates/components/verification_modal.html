@@ -1,0 +1,13 @@
+<button id="open-modal-btn" aria-haspopup="dialog">Continue</button>
+
+<dialog id="verify-modal" aria-labelledby="verify-title">
+  <h2 id="verify-title">Verification Required</h2>
+  <form id="verify-form">
+    {% csrf_token %}
+    <label for="verify-password">Enter password</label>
+    <input type="password" id="verify-password" name="password" required autocomplete="off">
+    <p id="verify-error" role="alert" style="color:red; display:none;"></p>
+    <button type="submit">Verify</button>
+    <button type="button" id="close-modal-btn">Cancel</button>
+  </form>
+</dialog>

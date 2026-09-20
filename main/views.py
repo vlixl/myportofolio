@@ -1,16 +1,23 @@
-from django.shortcuts import render
 
-# Create your views here.
-from django.shortcuts import render
-
-from main.models import Music, Education, Achievement, Photo, Project
-
-# Form Libraries
-from main.forms import ProjectForm
 from django.contrib import messages
 from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+
+from main.models import (
+    Music, 
+    Education, 
+    Achievement, 
+    Photo, 
+    Project 
+    )
+
+# Form Libraries
+from main.forms import (
+    ProjectForm, 
+    AchievementForm 
+    )
+
 
 GLOBAL_CONTEXT = {
     "name": "Leow Vincent Vintizel",
@@ -18,6 +25,18 @@ GLOBAL_CONTEXT = {
 }
 
 def show_main(request):
+    json_response = get_achievements_json(request)
+
+    achievements = serializers.deserialize(
+        "json",
+        json_response.content.decode("utf-8"),
+    )
+
+    achievements = [
+        achievement.object
+        for achievement in achievements
+    ]
+
     context = GLOBAL_CONTEXT | {
         "first_name": "Leow",
         "middle_name": "Vincent",
@@ -28,16 +47,9 @@ def show_main(request):
             "CS Student @ UI, studying theoretical computer science. I’m someone who enjoys learning by making. "
             "Most of what I do starts with curiosity and turns into something creative."
         ),
-        "achievement_list": Achievement.objects.all(),
+        "achievement_list": achievements,
     }
     return render(request, "index.html", context)
-
-
-# def show_experience(request):
-#     context = GLOBAL_CONTEXT | {
-#         "experience_list": Experience.objects.all(),
-#     }
-#     return render(request, "experience.html", context)
 
 def show_art(request):
     context = GLOBAL_CONTEXT | {
@@ -55,6 +67,8 @@ def show_education(request):
     }
     return render(request, "education.html", context)
 
+# PROJECTS
+
 def create_project(request):
     form = ProjectForm(request.POST or None)
 
@@ -67,7 +81,6 @@ def create_project(request):
         "form": form,
     }
     return render(request, "projects_form.html", context)
-
 
 def show_projects(request):
     json_response = get_projects_json(request)
@@ -104,3 +117,93 @@ def delete_project(request, project_id):
         return redirect("main:show_projects")
 
     return redirect("main:show_projects")
+
+# Achievements
+
+def verify_achievement_request(request, type, achievement_id):
+
+    # Future Verification System Setup
+
+
+    
+    match type:
+        case 'create_achievement':
+            return create_achievement_verified(request)
+        case 'update_achievement':
+            return update_achievement_verified(request, achievement_id)
+        case 'delete_achievement':
+            return delete_achievement_verified(request, achievement_id)
+
+def create_achievement(request):
+    return verify_achievement_request(
+        request, 'create_achievement', 0)
+
+def update_achievement(request, achievement_id):
+    return verify_achievement_request(
+        request, 'update_achievement', achievement_id)
+
+def delete_achievement(request, achievement_id):
+    return verify_achievement_request(
+        request, 'delete_achievement', achievement_id)
+
+def create_achievement_verified(request):
+   
+    form = AchievementForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("main:show_main")
+
+    context = GLOBAL_CONTEXT | {
+        "form": form,
+    }
+
+    return render(request, "achievement_form.html", context)
+
+def update_achievement_verified(request, achievement_id):
+    achievement = get_object_or_404(
+        Achievement,
+        pk=achievement_id
+    )
+
+    form = AchievementForm(
+        request.POST or None,
+        instance=achievement
+    )
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("main:show_main")
+
+    context = GLOBAL_CONTEXT | {
+        "form": form,
+    }
+
+    return render(
+        request,
+        "achievement_form.html",
+        context
+    )
+
+def delete_achievement_verified(request, achievement_id):
+    achievement = get_object_or_404(
+        Achievement,
+        pk=achievement_id
+    )
+
+    if request.method == "POST":
+        achievement.delete()
+        return redirect("main:show_main")
+
+    return redirect("main:show_main")
+
+def get_achievements_json(request):
+    achievements = Achievement.objects.all()
+
+    achievements_json = serializers.serialize(
+        "json", achievements)
+
+    return HttpResponse(
+        achievements_json,
+        content_type="application/json"
+    )

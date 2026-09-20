@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ name }} - Add Achievements{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/achievement-form.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="achievement-form container">
+
+        <h1 class="section-header">
+            Add Achievement
+        </h1>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button class="button" type="submit">
+                Save
+            </button>
+
+        </form>
+
+    </section>
+{% endblock content %}
