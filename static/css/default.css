@@ -97,7 +97,7 @@ p {
     font-family: 'Times New Roman', Times, serif;
     font-weight: normal;
     letter-spacing: -0.06em;
-    font-size: clamp(1.5em, 20vw, 10em);
+    font-size: clamp(1em, 20vw, 10em);
     overflow-wrap: anywhere;
 }
 .section-subheader {

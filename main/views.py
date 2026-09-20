@@ -63,8 +63,7 @@ def create_project(request):
         messages.success(request, "Proyek baru berhasil ditambahkan!")
         return redirect("main:show_projects")
 
-    context = {
-        "name": "Burhan",
+    context = GLOBAL_CONTEXT | {
         "form": form,
     }
     return render(request, "projects_form.html", context)
@@ -80,8 +79,7 @@ def show_projects(request):
     projects = [project.object for project in projects]
     title_query = request.GET.get("title", "").strip()
 
-    context = {
-        "name": "Burhan",
+    context = GLOBAL_CONTEXT | {
         "project_list": projects,
         "title_query": title_query,
     }

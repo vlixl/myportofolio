@@ -1,0 +1,496 @@
+/* 
+==================================================
+    PROJECT HEADER
+==================================================
+*/
+
+.project-header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+/* Add Project Button */
+
+.project-add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    margin: 0 0 0.5rem 0;
+    padding: 0.8rem 1.2rem;
+
+    border: none;
+    border-radius: var(--radius);
+
+    background: var(--bright-gradient);
+    box-shadow: inset 0 0 0 100vmax var(--ink);
+
+    color: var(--paper);
+
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.project-add-button:hover {
+    box-shadow: inset 0 0 0 100vmax transparent;
+}
+
+.project-add-button span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+
+/* 
+==================================================
+    PROJECT SEARCH
+==================================================
+*/
+
+.project-search {
+    width: 100%;
+
+    display: flex;
+    gap: 0.75rem;
+
+    margin-bottom: 2rem;
+}
+
+.project-search__input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 0.9rem 1.25rem;
+
+    border: 2px solid gray;
+    border-radius: var(--radius);
+
+    background: rgb(23, 23, 34);
+    color: var(--ink);
+
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+}
+
+.project-search__input::placeholder {
+    color: var(--text-muted);
+}
+
+.project-search__input:focus {
+    outline: none;
+
+    border: 2px solid transparent;
+
+    background:
+        linear-gradient(
+            rgb(23, 23, 34),
+            rgb(23, 23, 34)
+        ) padding-box,
+        var(--bright-gradient) border-box;
+}
+
+
+/* Search Button */
+
+.project-search .button {
+    flex-shrink: 0;
+
+    margin: 0;
+    padding: 0.9rem 1.5rem;
+
+    border: none;
+    border-radius: var(--radius);
+
+    background: var(--bright-gradient);
+    box-shadow: inset 0 0 0 100vmax var(--ink);
+
+    color: var(--paper);
+
+    font-family: "Outfit", "Inter", sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.project-search .button:hover {
+    box-shadow: inset 0 0 0 100vmax transparent;
+}
+
+@media (max-width: 800px) {
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-add-button {
+        margin-top: 1rem;
+    }
+}
+
+
+/* 
+==================================================
+    PROJECT GRID
+==================================================
+*/
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 1.5rem;
+
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+
+/* 
+==================================================
+    EMPTY STATE
+==================================================
+*/
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    padding: 3rem;
+
+    border: 1px solid rgb(60, 60, 70);
+    border-radius: var(--radius);
+
+    background: rgb(23, 23, 34);
+
+    color: var(--text-muted);
+
+    font-family: "Inter", sans-serif;
+    text-align: center;
+}
+
+
+/* 
+==================================================
+    MOBILE
+==================================================
+*/
+
+@media (max-width: 600px) {
+
+    .project-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .project-add-button {
+        width: 100%;
+    }
+
+    .project-search {
+        flex-direction: column;
+    }
+
+    .project-search .button {
+        width: 100%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 
+==================================================
+    PROJECT CARD
+==================================================
+*/
+
+.project-grid .experience-card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem;
+
+    border: 2px solid transparent;
+    border-radius: 1.5em;
+
+    background:
+        linear-gradient(rgb(23, 23, 34), rgb(23, 23, 34)) padding-box,
+        var(--bright-gradient) border-box;
+}
+
+
+/* 
+==================================================
+    PROJECT TITLE
+==================================================
+*/
+
+.project-grid .experience-card h2 {
+    margin-bottom: 0.5rem;
+
+    font-size: 2.5em;
+
+    background: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+
+/* 
+==================================================
+    PROJECT TECH STACK
+==================================================
+*/
+
+.project-grid .experience-category {
+    width: fit-content;
+
+    padding: 0.3rem 0.7rem;
+
+    border-radius: var(--radius-max);
+
+    background: rgba(221, 0, 255, 0.12);
+    color: rgb(235, 160, 255);
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+
+/* 
+==================================================
+    PROJECT DESCRIPTION
+==================================================
+*/
+
+.project-grid .experience-description {
+    margin-top: 1rem;
+
+    color: var(--text-muted);
+
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+}
+
+
+/* 
+==================================================
+    PROJECT ACTION BUTTONS
+==================================================
+*/
+
+.project-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin-top: 2rem;
+}
+
+.project-actions .experience-status {
+    margin: 0;
+}
+
+.project-actions .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0.7rem 1.1rem;
+    line-height: 1.2;
+
+    border: none;
+    border-radius: var(--radius-max);
+
+    background: var(--ink);
+    color: var(--paper);
+
+    font-family: "Outfit", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.project-actions .button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Delete Button */
+
+.project-actions .button-danger {
+    background: #9e2424;
+    color: white;
+}
+
+.project-actions .button-danger:hover {
+    background: #c53030;
+}
+
+/* 
+==================================================
+    DELETE PROJECT MODAL
+==================================================
+*/
+
+.project-delete-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    margin: 0;
+    padding: 1rem;
+
+    border: none;
+    background: transparent;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+}
+
+.project-delete-modal:popover-open {
+    display: flex;
+}
+
+
+/* 
+==================================================
+    MODAL BACKDROP
+==================================================
+*/
+
+.project-delete-modal__backdrop {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    border: none;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    cursor: default;
+}
+
+
+/* 
+==================================================
+    MODAL CONTENT
+==================================================
+*/
+
+.project-delete-modal__content {
+    position: relative;
+    z-index: 1;
+
+    width: min(90vw, 500px);
+    padding: 2rem;
+
+    border: 2px solid transparent;
+    border-radius: 1.5em;
+
+    background:
+        linear-gradient(rgb(23, 23, 34), rgb(23, 23, 34)) padding-box,
+        var(--bright-gradient) border-box;
+
+    color: var(--ink);
+}
+
+.project-delete-modal__content h2 {
+    margin-bottom: 1rem;
+
+    font-size: 2.5rem;
+
+    background: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.project-delete-modal__content p {
+    color: var(--text-muted);
+}
+
+
+/* 
+==================================================
+    CLOSE BUTTON
+==================================================
+*/
+
+.project-delete-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 1.75rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.project-delete-modal__close:hover {
+    color: var(--ink);
+}
+
+
+/* 
+==================================================
+    MODAL ACTIONS
+==================================================
+*/
+
+.project-delete-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin-top: 2rem;
+}
+
+.project-delete-modal__actions .button {
+    margin: 0;
+}

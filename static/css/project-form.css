@@ -1,0 +1,164 @@
+/* Header */
+.section-header{
+    font-size: clamp(1em, 15vw, 8em);
+}
+
+
+/* 
+==================================================
+    FORM LAYOUT
+==================================================
+*/
+
+.project-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.project-form {
+    --radius: 1.5em;
+    --paper: rgb(23, 23, 34);
+}
+
+/* 
+==================================================
+    FORM LABELS
+==================================================
+*/
+
+.form-group label {
+
+    font-size: 1.5em;
+
+    display: block;
+    margin-bottom: 0.4rem;
+    
+
+    color: var(--ink);
+
+}
+
+
+/* 
+==================================================
+    FORM INPUTS
+==================================================
+*/
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+
+    border: 2px solid gray;
+    border-radius: var(--radius);
+
+    background: var(--paper);
+    color: var(--ink);
+
+
+    transition:
+        border-color 0.2s ease,
+        outline-color 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+
+/* Placeholder Text */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* 
+==================================================
+    FORM FOCUS
+==================================================
+*/
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+
+    border: 2px solid transparent;
+
+    background:
+        linear-gradient(var(--paper), var(--paper)) padding-box,
+        var(--bright-gradient) border-box;
+}
+
+
+/* 
+==================================================
+    FORM ERRORS
+==================================================
+*/
+
+.form-error {
+    margin-top: 0.35rem;
+
+    color: #ff6b6b;
+    font-size: 0.85rem;
+}
+
+
+/* 
+==================================================
+    BUTTONS
+==================================================
+*/
+
+
+.button{
+    display: inline-block;
+
+    height: fit-content;
+    padding: 0.65rem 1rem;
+    margin: 2rem 1rem 1rem 0;
+
+    border: none;
+    border-radius: var(--radius);
+
+    background: var(--bright-gradient);
+    box-shadow: inset 0 0 0 100vmax var(--ink);
+
+    color: var(--paper);
+
+    cursor: pointer;
+
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+.button:hover {
+    box-shadow: inset 0 0 0 100vmax transparent;
+    color: var(--ink);
+}
+
+.button-secondary {
+    box-shadow: inset 0 0 0 100vmax rgb(53, 55, 77);
+    color: var(--ink);
+}
