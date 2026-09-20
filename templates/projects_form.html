@@ -12,7 +12,8 @@
         <h1 class="section-header">Add Project</h1>
         <form method="post"
                 action="{% url 'main:create_project' %}"
-                class="project-form">
+                class="project-form"
+                id="project-form">
             {% csrf_token %}
             {% for field in form %}
                 <div class="form-group">
@@ -23,8 +24,10 @@
                     {% endfor %}
                 </div>
             {% endfor %}
-            <button type="submit" class="button">Tambah Project</button>
+            <button type="button" class="button" popovertarget="confirm-save-project">Tambah Project</button>
             <a href="{% url 'main:show_projects' %}" class="button button-secondary">Batal</a>
         </form>
+
+        {% include "components/password_gate_modal.html" with modal_id="confirm-save-project" form_id="project-form" title="Konfirmasi Simpan" message="Masukkan password untuk menyimpan proyek ini." confirm_label="Simpan Project" password_error=password_error %}
     </section>
 {% endblock content %}

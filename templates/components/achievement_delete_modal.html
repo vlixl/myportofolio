@@ -1,0 +1,55 @@
+<button type="button"
+        class="delete-achievement"
+        popovertarget="delete-achievement-{{ achievement.id }}"
+        aria-label="Hapus {{ achievement.event }}">
+    Delete
+</button>
+
+<div id="delete-achievement-{{ achievement.id }}"
+    class="gate-modal"
+    popover="auto"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="delete-achievement-title-{{ achievement.id }}"
+    {% if wrong_password_achievement == achievement.id|stringformat:"s" %}open{% endif %}>
+    <button type="button"
+            class="gate-modal__backdrop"
+            popovertarget="delete-achievement-{{ achievement.id }}"
+            popovertargetaction="hide"
+            aria-label="Tutup konfirmasi hapus"></button>
+    <div class="gate-modal__content">
+        <button type="button"
+                class="gate-modal__close"
+                popovertarget="delete-achievement-{{ achievement.id }}"
+                popovertargetaction="hide"
+                aria-label="Tutup konfirmasi hapus">×</button>
+        <h2 id="delete-achievement-title-{{ achievement.id }}">Hapus Achievement?</h2>
+        <p>
+            Apakah Anda yakin ingin menghapus
+            <strong>{{ achievement.award }} {{ achievement.award_label }}</strong>?
+        </p>
+
+        {% if wrong_password_achievement == achievement.id|stringformat:"s" %}
+            <p class="gate-error" role="alert">Password salah. Silakan coba lagi.</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'main:delete_achievement' achievement.id %}">
+            {% csrf_token %}
+            <div class="gate-field">
+                <label for="delete-achievement-password-{{ achievement.id }}">Password</label>
+                <input type="password"
+                        id="delete-achievement-password-{{ achievement.id }}"
+                        name="gate_password"
+                        required
+                        autocomplete="off">
+            </div>
+            <div class="gate-modal__actions">
+                <button type="button"
+                        class="gate-btn gate-btn-secondary"
+                        popovertarget="delete-achievement-{{ achievement.id }}"
+                        popovertargetaction="hide">Batal</button>
+                <button type="submit" class="gate-btn">Ya, Hapus</button>
+            </div>
+        </form>
+    </div>
+</div>
