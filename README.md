@@ -73,6 +73,16 @@ Namun, terdapat pula berbagai keterbatasan dalam AI yang saya temukan:
 
 Dalam pengerjaan tugas, saya menggunakan AI untuk memahami konsep-konsep pada django. Saya juga menggunakan AI untuk mencari inspirasi-inspirasi desain. Sejauh ini, kekurangan AI sama dengan tugas 1, yakni kurang dapat memahami konteks proyek.
 
+## Tugas 3
+
+1. Kita menggunakan ModelForm dengan alasan-alasan berikut:
+ a. mengurangi repetisi kode ketika mengambil data POST secara manual satu per satu dan ketika menambahkan masing-masing input dalam html
+ b. menyesuaikan tipe data dengan metode input secara otomatis (misalnya input pilihan akan diberikan dropdown, input text field diberikan wadah input yang lebih besar daripada charfield)
+ c. mempermudah validasi input dan inisialisasi obyek model
+ d. mempermudah pemeliharaan website, karena bila Model diubah, form akan secara otomatis menyesuaikan struktur model tersebut
+Dalam HTML, crsf token wajib ditambahkan sebagai bukti bahwa sebuah request benar-benar berasal dari halaman/form milik website kita, bukan dari website lain yang menipu browser user.
+2. JSON lebih sering digunakan karena sintaksnya lebih jelas dan ringkas, mudah dibaca manusia, lebih ringkas, dan mudah digunakan dalam javascript (memiliki parsing sederhana).
+3. Ketika fungsi view tersebut dipanggil, secara umum, obyek yang sesuai dengan model yang dipilih akan diambil dari database, kemudian difilter berdasarkan query yang diberikan dalam request. Kemudian, dengan django serializer, objek tersebut akan di-serialize menjadi bentuk JSON sebelum mengembalikannya dalam sebuah HTTP response. Alasan serialization tersebut diperlukan yakni karena objek-objek tersebut perlu diubah menjadi suatu format yang dapat dikirim dengan protokol HTTP. Dalam hal ini, JSON adalah format yang dipilih.
 
 # Update Mingguan
 
