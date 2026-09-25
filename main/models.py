@@ -5,6 +5,8 @@ import calendar
 import uuid
 from django.db import models
 
+from django.contrib.auth.models import User
+
 class Experience(models.Model):
     EXPERIENCE_CHOICES = [
         ('internship', 'Internship'),
@@ -101,6 +103,11 @@ class Project(models.Model):
     tech_stack = models.CharField(max_length=255)
     project_url = models.URLField(blank=True)
     project_image_url = models.URLField(blank=True, max_length=500)
-
+    
+    # satu proyek bisa di-star banyak pengguna,
+    # dan satu pengguna bisa mem-star banyak proyek
+    starred_by = models.ManyToManyField(
+        User, related_name="starred_projects", blank=True
+    )
     def __str__(self):
         return self.title
