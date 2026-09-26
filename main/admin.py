@@ -1,8 +1,7 @@
 from django.contrib import admin
-from .models import Experience, Music, Education, Achievement, Photo, Project
+from .models import Music, Education, Achievement, Photo, Project
 
 # Register your models here.
-admin.site.register(Experience)
 admin.site.register(Music)
 admin.site.register(Education)
 admin.site.register(Achievement)

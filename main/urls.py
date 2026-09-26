@@ -1,22 +1,6 @@
 from django.urls import path
 
-from main.views import ( 
-    show_main, 
-    show_art, 
-    show_education, 
-    create_project, 
-    show_projects, 
-    get_projects_json, 
-    delete_project,
-    create_achievement, 
-    update_achievement,
-    delete_achievement,
-    get_achievements_json,
-    register,
-    login_user,
-    logout_user,
-    toggle_star,
-    )
+from main.views import *
 
 app_name = "main"
 
