@@ -1,22 +1,21 @@
-
+# Basic Libraries
 from django.contrib import messages
 from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 # Register and Sign Up Form
-from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.shortcuts import redirect, render
 
 # Bookkeeping
 import datetime
 
 # Authorization
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.core.exceptions import PermissionDenied
 
+# Models
 from main.models import (
     Music, 
     Education, 
@@ -151,6 +150,7 @@ def delete_project(request, project_id):
 
 # Tanpa cek is_superuser: semua akun yang sudah login boleh memberi star
 @login_required(login_url="/login/")
+@permission_required("main.can_star_project")
 def toggle_star(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
 
