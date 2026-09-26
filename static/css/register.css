@@ -1,23 +1,24 @@
-/* Login Page */
+/* Register Page */
 
-.login {
+.experience-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 4rem 1.5rem;
+
     --radius: 1.5em;
 }
 
-.login .container {
+.experience-section .container {
     width: 100%;
     max-width: 28rem;
-    
 }
 
-.login h1 {
+.experience-section h1 {
     margin-bottom: 2rem;
 }
+
 
 /* Form */
 
@@ -76,9 +77,23 @@
 }
 
 
+/* Help Text */
+
+.form-help {
+    font-size: 0.85rem;
+    color: var(--ink);
+    opacity: 0.6;
+}
+
+.form-help ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.25rem;
+}
+
+
 /* Button */
 
-.button{
+.button {
     display: inline-block;
 
     height: fit-content;
@@ -111,15 +126,7 @@
 }
 
 
-/* Messages */
-
-.form-message {
-    margin-bottom: 1rem;
-    padding: 0.75rem 1rem;
-
-    border: 1px solid var(--line);
-    border-radius: 0.75rem;
-}
+/* Errors */
 
 .form-error {
     margin: 0;
@@ -129,9 +136,9 @@
 }
 
 
-/* Register link */
+/* Login Link */
 
-.login .container > p:last-child {
+.experience-section .container > p:last-child {
     margin-top: 1.5rem;
 
     text-align: center;
@@ -139,13 +146,13 @@
     opacity: 0.75;
 }
 
-.login a {
+.experience-section a {
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
 }
 
-.login a:hover {
+.experience-section a:hover {
     text-decoration: underline;
 }
 
@@ -153,12 +160,12 @@
 /* Mobile */
 
 @media (max-width: 600px) {
-    .login {
+    .experience-section {
         padding: 2.5rem 1rem;
         align-items: flex-start;
     }
 
-    .login h1 {
+    .experience-section h1 {
         font-size: 2rem;
     }
 
