@@ -5,7 +5,11 @@
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/hero.css' %}">
-    <link rel="stylesheet" href="{% static 'css/achievements.css' %}">
+    <link rel="stylesheet" href="{% static 'css/achievements.css' %}">\
+
+    <!-- Google Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star" />
+    </style>
 {% endblock %}
     
 {% block content %}
@@ -48,10 +52,12 @@
                         <dt>Program</dt>
                         <dd>{{ study_program }}</dd>
                     </div>
-                    <div class="meta-row">
-                        <dt>Sesi Terakhir Login</dt>
-                        <dd>{{ last_login }}</dd>
-                    </div>
+                    {% if user.is_authenticated %}
+                        <div class="meta-row">
+                            <dt>Sesi Terakhir Login</dt>
+                            <dd>{{ last_login }}</dd>
+                        </div>
+                    {% endif %}
                 </dl>
                 <div class="social-links">
                     <a href="https://github.com/vlixl">GitHub</a>
@@ -86,6 +92,7 @@
             <div class="achievement-list">
                 {% for achievement in achievement_list %}
                     <article class="achievement-row">
+                        {% include "components/achievement_star.html" with achievement=achievement %}
                         <h2 class="award-result">
                             <span>{{ achievement.award }}</span>
                             {{ achievement.award_label }}

@@ -95,6 +95,7 @@
 
 .achievement-row {
     display: flex;
+    position: relative;
   
     gap: 2rem;
     padding: 3rem;
@@ -210,4 +211,85 @@
     background-color: #0f1118;
     text-decoration: none;
     color: var(--text-muted);
+}
+
+/* Star Form */
+
+.star-form {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+
+/* Star Button */
+
+.button-star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+
+    padding: 0.45rem 0.75rem;
+
+    border: none;
+
+    background: transparent;
+    color: var(--text-muted);
+
+    cursor: pointer;
+    font: inherit;
+
+}
+
+
+/* Star Icon */
+
+.star-icon {
+
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 24;
+
+    transition:
+        font-variation-settings 0.2s ease,
+        transform 0.2s ease;
+    color: var(--text-muted);
+}
+
+
+/* Star Count */
+
+.star-count {
+    min-width: 1.25rem;
+
+    padding: 0.1rem 0.4rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* Starred State */
+.button-star.is-starred .star-icon {
+    font-variation-settings:
+        "FILL" 1,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 24;
+}
+
+.button-star:hover .star-icon {
+    transform: scale(1.1) translateY(-1px);
+    color: var(--ink)
+}
+
+.button-star:active {
+    transform: translateY(0) scale(0.97);
 }

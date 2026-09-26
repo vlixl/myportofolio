@@ -42,6 +42,7 @@ body::-webkit-scrollbar {
     /* Document Colors */
     --paper: #000000;
     --tinted: rgb(23, 23, 34);
+    --gray: rgb(78, 78, 78);
 
     /* Page Separator */
     --line: #e3d9c9; 

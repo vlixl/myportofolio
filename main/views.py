@@ -4,6 +4,7 @@ from .handlers.achievement_views import (
     update_achievement, 
     delete_achievement, 
     get_achievements_json,
+    toggle_achievement_star,
 )
 from .handlers.auth_views import (
     register, 
@@ -22,5 +23,5 @@ from .handlers.project_views import (
     show_projects,
     delete_project,
     get_projects_json,
-    toggle_star,
+    toggle_project_star,
 )

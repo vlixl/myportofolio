@@ -2,6 +2,7 @@
 from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib.auth.decorators import login_required
 
 from main.models import Achievement
 from main.forms import AchievementForm 
@@ -49,3 +50,15 @@ def get_achievements_json(request):
         achievements_json,
         content_type="application/json"
     )
+
+@login_required
+def toggle_achievement_star(request, achievement_id):
+    achievement = get_object_or_404(Achievement, pk=achievement_id)
+
+    if request.method == "POST":
+        if request.user in achievement.starred_by.all():
+            achievement.starred_by.remove(request.user)
+        else:
+            achievement.starred_by.add(request.user)
+
+    return redirect("main:show_main")

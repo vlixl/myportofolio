@@ -73,7 +73,7 @@ def delete_project(request, project_id):
     return redirect("main:show_projects")
 
 @login_required
-def toggle_star(request, project_id):
+def toggle_project_star(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
 
     if request.method == "POST":

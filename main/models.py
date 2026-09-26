@@ -60,6 +60,10 @@ class Achievement(models.Model):
     organization = models.CharField(max_length=255, blank=True)
 
     description = models.TextField()
+
+    starred_by = models.ManyToManyField(
+        User, related_name="starred_achievements", blank=True
+    )
     
     def __str__(self):
         return f"{self.award} {self.award_label}, {self.category}"

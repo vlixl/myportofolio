@@ -47,6 +47,9 @@ urlpatterns = [
     path("logout/", logout_user, 
         name="logout"),
 
-    path("projects/<uuid:project_id>/star/", toggle_star,
-        name="toggle_star"),
+    path("projects/<uuid:project_id>/star/", toggle_project_star,
+        name="toggle_project_star"),
+
+    path("achievements/<uuid:achievement_id>/star/", toggle_achievement_star,
+        name="toggle_achievement_star"),
 ]
