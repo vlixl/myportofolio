@@ -41,6 +41,7 @@ body::-webkit-scrollbar {
 
     /* Document Colors */
     --paper: #000000;
+    --tinted: rgb(23, 23, 34);
 
     /* Page Separator */
     --line: #e3d9c9; 
@@ -178,13 +179,63 @@ hr {
     color: transparent;
 }
 
-@media(max-width: 600px){
-    #profile-link{
-        display: none;
+.nav-user{
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    font-size: 0.95rem;
+
+    background-image: var(--bright-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@media (max-width: 900px) {
+    .site-header .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .brand {
+        align-self: flex-start;
+    }
+
+    .site-header nav {
+        width: 100%;
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem 1rem;
+    }
+
+    .site-header nav a {
+        text-align: center;
+        white-space: nowrap;
     }
 }
 
-/* Brand Logo & Text */
+@media (max-width: 600px) {
+    .brand p {
+        display: none;
+    }
+
+    .site-header nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* 
+==================================================
+    Brand Logo & Text
+==================================================
+*/
+
 .logo {
     width: 3vh;
     height: 3vh;

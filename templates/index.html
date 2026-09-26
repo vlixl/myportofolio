@@ -98,10 +98,12 @@
                             <p>{{ achievement.organization }}</p>
                             <p>{{ achievement.description }}</p>
                             <div class="achievement-form">
-                                <a href="{% url 'main:update_achievement' achievement.id %}" class="edit-achievement">
-                                Edit
-                                </a>
-
+                                {% if perms.main.change_achievement %}
+                                    <a href="{% url 'main:update_achievement' achievement.id %}" class="edit-achievement">
+                                    Edit
+                                    </a>
+                                {% endif %}
+                                {% if perms.main.delete_achivement %}
                                 <form
                                     action="{% url 'main:delete_achievement' achievement.id %}"
                                     method="POST"
@@ -111,12 +113,19 @@
                                         Delete
                                     </button>
                                 </form>
+                                {% endif %}
                             </div>
                         </div>
                     </article>
                 {% empty %}
                     <p>Wow, such empty :3</p>
                 {% endfor %}
+                {% if perms.main.add_achievement %}
+                    <a href="{% url 'main:create_achievement' %}" 
+                    class="add-achievement">
+                        Add Achievement
+                    </a>
+                {% endif %}
                 </div>
         </div>
     </section>

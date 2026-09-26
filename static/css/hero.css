@@ -109,6 +109,11 @@
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
+@media (max-width: 800px){
+    .meta-list {
+        flex-direction: column;
+    }  
+}
 
 /* === Github, LinkedIn & Email links === */
 .social-links {
@@ -175,6 +180,12 @@
 .social-links a:active {
     transform: translateY(2px) scale(0.95);
     box-shadow: 0 3px 8px rgba(221, 0, 255, 0.25);
+}
+
+@media (max-width: 600px){
+    .social-links {
+        flex-direction: column;
+    }  
 }
 
 /* === Profile Photo === */

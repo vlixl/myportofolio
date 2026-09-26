@@ -1,10 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Login - {{ name }}{% endblock %}
 
+{% block style %} 
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
 {% block content %}
     <main>
-        <section class="experience-section">
+        <section class="login">
             <div class="container">
                 <h1>Login</h1>
                 {% for message in messages %}

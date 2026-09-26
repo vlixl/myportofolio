@@ -55,9 +55,11 @@ editor.permissions.add(
 # USER SEEDING
 # =====================
 
+User.objects.all().delete()
+
 # Normal Users
 user1, _ = User.objects.get_or_create(
-    username="user"
+    username="user1"
 )
 
 user1.set_password("user1_password")

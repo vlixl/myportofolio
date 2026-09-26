@@ -526,6 +526,7 @@
 
 .button-star.is-starred {
     background: var(--accent);
+    color: var(--ink);
 }
 
 .star-count {

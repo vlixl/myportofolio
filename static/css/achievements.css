@@ -195,6 +195,19 @@
     transition: color 0.2s ease;
 }
 .edit-achievement:hover, 
-.delete-achievement:hover{
+.delete-achievement:hover,
+.add-achievement:hover{
     color: var(--ink);
+}
+
+.add-achievement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 1rem;
+
+    background-color: #0f1118;
+    text-decoration: none;
+    color: var(--text-muted);
 }
