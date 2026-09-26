@@ -9,65 +9,15 @@ from main.models import Achievement, Education, Experience, Music, Photo
 
 
 class MainTest(TestCase):
-    # def setUp(self):
-    #     self.experience = Experience.objects.create(
-    #         title="Asisten Dosen PBP",
-    #         description="Membantu mahasiswa memahami pengembangan web.",
-    #         category="part-time",
-    #     )
-
-    # def test_main_url_is_accessible(self):
-    #     response = self.client.get(reverse("main:show_main"))
-
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "index.html")
-    #     self.assertNotContains(response, self.experience.title)
-    #     self.assertContains(response, f'href="{reverse("main:show_experience")}"')
 
     def test_nonexistent_page_returns_404(self):
         response = self.client.get("/halaman-yang-tidak-ada/")
 
         self.assertEqual(response.status_code, 404)
 
-    # def test_experience_model(self):
-    #     self.assertEqual(str(self.experience), "Asisten Dosen PBP")
-    #     self.assertEqual(self.experience.category, "part-time")
-    #     self.assertTrue(self.experience.is_ongoing)
-
-    # def test_experience_page(self):
-    #     response = self.client.get(reverse("main:show_experience"))
-
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "experience.html")
-    #     self.assertContains(response, self.experience.title)
-    #     self.assertContains(response, self.experience.description)
-    #     self.assertContains(response, "Part-Time")
-    #     self.assertContains(response, "Sedang berlangsung")
-    #     self.assertContains(response, f'href="{reverse("main:show_main")}"')
-
-    # def test_empty_experience_page(self):
-    #     Experience.objects.all().delete()
-    #     response = self.client.get(reverse("main:show_experience"))
-
-    #     self.assertContains(response, "Belum ada pengalaman yang ditambahkan.")
-
-    # def test_completed_experience(self):
-    #     self.experience.ended_at = timezone.now()
-    #     self.experience.save()
-    #     response = self.client.get(reverse("main:show_experience"))
-
-    #     self.assertFalse(self.experience.is_ongoing)
-    #     self.assertContains(response, "Selesai")
-    #     self.assertNotContains(response, "Sedang berlangsung")
-
 
 class MainModelTest(TestCase):
     def setUp(self):
-        # self.experience = Experience.objects.create(
-        #     title="Asisten Dosen PBP",
-        #     description="Membantu mahasiswa memahami pengembangan web.",
-        #     category="part-time",
-        # )
 
         self.music = Music.objects.create(
             title="Komposisi Pertama",
@@ -99,45 +49,6 @@ class MainModelTest(TestCase):
             track=1,
             position=1,
         )
-
-    # Experience
-    # def test_experience_category_display(self):
-    #     self.assertEqual(self.experience.get_category_display(), "Part-Time")
-
-    # def test_experience_default_category(self):
-    #     experience = Experience.objects.create(
-    #         title="Software Engineer",
-    #         description="Mengembangkan aplikasi web.",
-    #     )
-
-    #     self.assertEqual(experience.category, "full-time")
-    #     self.assertEqual(experience.get_category_display(), "Full-Time")
-    #     self.assertTrue(experience.is_ongoing)
-
-    # def test_experience_start_time_is_preserved(self):
-    #     started_at = self.experience.started_at
-    #     self.assertIsNotNone(started_at)
-
-    #     self.experience.title = "Asisten Dosen SDA"
-    #     self.experience.save()
-    #     self.experience.refresh_from_db()
-
-    #     self.assertEqual(self.experience.started_at, started_at)
-
-    # def test_experience_completed_status(self):
-    #     self.experience.ended_at = timezone.now()
-    #     self.experience.save()
-    #     self.experience.refresh_from_db()
-
-    #     self.assertFalse(self.experience.is_ongoing)
-
-    # def test_experience_invalid_category(self):
-    #     self.experience.category = "invalid"
-
-    #     with self.assertRaises(ValidationError) as error:
-    #         self.experience.full_clean()
-
-    #     self.assertIn("category", error.exception.message_dict)
 
     # Music
     def test_music_model(self):

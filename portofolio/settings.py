@@ -19,10 +19,6 @@ load_dotenv()
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "leow-vincent-myportofolio.pws.cs.ui.ac.id"]
 PRODUCTION = os.getenv('PRODUCTION', 'False').lower() == 'true'
 
-# Password required to confirm add/edit/delete actions on projects and achievements.
-# Set GATE_PASSWORD in your .env file to override the fallback below.
-GATE_PASSWORD = os.getenv('GATE_PASSWORD', 'changeme123')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

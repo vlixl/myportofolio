@@ -1,10 +1,8 @@
 
-from django.conf import settings
 from django.contrib import messages
 from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
 
 # Register and Sign Up Form
 from django.contrib import messages
@@ -32,12 +30,6 @@ from main.forms import (
     ProjectForm, 
     AchievementForm 
     )
-
-
-def is_gate_password_correct(request):
-    """Checks the confirmation password submitted alongside an
-    add/edit/delete action against the configured gate password."""
-    return request.POST.get("gate_password", "") == settings.GATE_PASSWORD
 
 
 GLOBAL_CONTEXT = {
@@ -103,18 +95,14 @@ def create_project(request):
         raise PermissionDenied
 
     form = ProjectForm(request.POST or None)
-    password_error = None
 
     if request.method == "POST" and form.is_valid():
-        if is_gate_password_correct(request):
-            form.save()
-            messages.success(request, "Proyek baru berhasil ditambahkan!")
-            return redirect("main:show_projects")
-        password_error = "Password salah. Silakan coba lagi."
+        form.save()
+        messages.success(request, "Proyek baru berhasil ditambahkan!")
+        return redirect("main:show_projects")
 
     context = GLOBAL_CONTEXT | {
         "form": form,
-        "password_error": password_error,
     }
     return render(request, "projects_form.html", context)
 
@@ -131,7 +119,6 @@ def show_projects(request):
     context = GLOBAL_CONTEXT | {
         "project_list": projects,
         "title_query": title_query,
-        "wrong_password_project": request.GET.get("wrong_password_project", ""),
     }
     return render(request, "project.html", context)
 
@@ -156,13 +143,9 @@ def delete_project(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
 
     if request.method == "POST":
-        if is_gate_password_correct(request):
-            project.delete()
-            messages.success(request, "Project berhasil dihapus!")
-            return redirect("main:show_projects")
-
-        messages.error(request, "Password salah. Project tidak dihapus.")
-        return redirect(f"{reverse('main:show_projects')}?wrong_password_project={project_id}")
+        project.delete()
+        messages.success(request, "Project berhasil dihapus!")
+        return redirect("main:show_projects")
 
     return redirect("main:show_projects")
 
@@ -184,19 +167,15 @@ def toggle_star(request, project_id):
 # Achievements
 
 def create_achievement(request):
-
+   
     form = AchievementForm(request.POST or None)
-    password_error = None
 
     if request.method == "POST" and form.is_valid():
-        if is_gate_password_correct(request):
-            form.save()
-            return redirect("main:show_main")
-        password_error = "Password salah. Silakan coba lagi."
+        form.save()
+        return redirect("main:show_main")
 
     context = GLOBAL_CONTEXT | {
         "form": form,
-        "password_error": password_error,
     }
 
     return render(request, "achievement_form.html", context)
@@ -211,17 +190,13 @@ def update_achievement(request, achievement_id):
         request.POST or None,
         instance=achievement
     )
-    password_error = None
 
     if request.method == "POST" and form.is_valid():
-        if is_gate_password_correct(request):
-            form.save()
-            return redirect("main:show_main")
-        password_error = "Password salah. Silakan coba lagi."
+        form.save()
+        return redirect("main:show_main")
 
     context = GLOBAL_CONTEXT | {
         "form": form,
-        "password_error": password_error,
     }
 
     return render(
@@ -237,12 +212,8 @@ def delete_achievement(request, achievement_id):
     )
 
     if request.method == "POST":
-        if is_gate_password_correct(request):
-            achievement.delete()
-            return redirect("main:show_main")
-
-        messages.error(request, "Password salah. Achievement tidak dihapus.")
-        return redirect(f"{reverse('main:show_main')}?wrong_password_achievement={achievement_id}#achievements")
+        achievement.delete()
+        return redirect("main:show_main")
 
     return redirect("main:show_main")
 

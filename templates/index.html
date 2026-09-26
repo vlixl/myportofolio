@@ -102,7 +102,15 @@
                                 Edit
                                 </a>
 
-                                {% include "components/achievement_delete_modal.html" with achievement=achievement %}
+                                <form
+                                    action="{% url 'main:delete_achievement' achievement.id %}"
+                                    method="POST"
+                                >
+                                    {% csrf_token %}
+                                    <button type="submit" class="delete-achievement">
+                                        Delete
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </article>

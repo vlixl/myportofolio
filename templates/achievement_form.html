@@ -14,19 +14,17 @@
             Add Achievement
         </h1>
 
-        <form method="post" id="achievement-form">
+        <form method="post">
 
             {% csrf_token %}
 
             {{ form.as_p }}
 
-            <button class="button" type="button" popovertarget="confirm-save-achievement">
+            <button class="button" type="submit">
                 Save
             </button>
 
         </form>
-
-        {% include "components/password_gate_modal.html" with modal_id="confirm-save-achievement" form_id="achievement-form" title="Konfirmasi Simpan" message="Masukkan password untuk menyimpan achievement ini." confirm_label="Simpan Achievement" password_error=password_error %}
 
     </section>
 {% endblock content %}

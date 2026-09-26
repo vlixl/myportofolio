@@ -12,8 +12,7 @@
     popover="auto"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="delete-project-title-{{ project.id }}"
-    {% if wrong_password_project == project.id|stringformat:"s" %}open{% endif %}>
+    aria-labelledby="delete-project-title-{{ project.id }}">
     <button type="button"
             class="project-delete-modal__backdrop"
             popovertarget="delete-project-{{ project.id }}"
@@ -30,28 +29,15 @@
             Apakah Anda yakin ingin menghapus
             <strong>{{ project.title }}</strong>?
         </p>
-
-        {% if wrong_password_project == project.id|stringformat:"s" %}
-            <p class="gate-error" role="alert">Password salah. Silakan coba lagi.</p>
-        {% endif %}
-
-        <form method="post" action="{% url 'main:delete_project' project.id %}">
-            {% csrf_token %}
-            <div class="gate-field">
-                <label for="delete-password-{{ project.id }}">Password</label>
-                <input type="password"
-                        id="delete-password-{{ project.id }}"
-                        name="gate_password"
-                        required
-                        autocomplete="off">
-            </div>
-            <div class="project-delete-modal__actions">
-                <button type="button"
-                        class="button button-secondary"
-                        popovertarget="delete-project-{{ project.id }}"
-                        popovertargetaction="hide">Batal</button>
+        <div class="project-delete-modal__actions">
+            <button type="button"
+                    class="button button-secondary"
+                    popovertarget="delete-project-{{ project.id }}"
+                    popovertargetaction="hide">Batal</button>
+            <form method="post" action="{% url 'main:delete_project' project.id %}">
+                {% csrf_token %}
                 <button type="submit" class="button button-danger">Ya, Hapus</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
