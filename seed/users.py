@@ -48,6 +48,7 @@ editor.permissions.add(
     view_music,
     view_education,
     view_project,
+    change_achievement,
 )
 
 

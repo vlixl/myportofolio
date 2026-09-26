@@ -84,23 +84,7 @@ Dalam HTML, crsf token wajib ditambahkan sebagai bukti bahwa sebuah request bena
 2. JSON lebih sering digunakan karena sintaksnya lebih jelas dan ringkas, mudah dibaca manusia, lebih ringkas, dan mudah digunakan dalam javascript (memiliki parsing sederhana).
 3. Ketika fungsi view tersebut dipanggil, secara umum, obyek yang sesuai dengan model yang dipilih akan diambil dari database, kemudian difilter berdasarkan query yang diberikan dalam request. Kemudian, dengan django serializer, objek tersebut akan di-serialize menjadi bentuk JSON sebelum mengembalikannya dalam sebuah HTTP response. Alasan serialization tersebut diperlukan yakni karena objek-objek tersebut perlu diubah menjadi suatu format yang dapat dikirim dengan protokol HTTP. Dalam hal ini, JSON adalah format yang dipilih.
 
-# Update Mingguan
+## Tugas 4
+Dalam pengerjaan tugas 4, AI yang digunakan adalah ChatGPT. Dalam hal ini, ChatGPT digunakan untuk membantu mempercepat mengenakan style dengan gaya dan struktur yang sama untuk login, register, dan komponen-komponen lain. AI juga digunakan untuk memahami konsep-konsep mengenai authorization. 
 
-Ini adalah catatan personal yang digunakan hanya untuk keperluan pribadi.
-
-## Minggu 1
-
-> Setiap browser memiliki kompatibilitas masing-masing, tapi Apple yang paling egois karena masih membutuhkan API WebKit.
-
-> KODE MENAMBAHKAN GRADIEN TEKS:
->
-> ```css
-> background-clip: text;
-> -webkit-background-clip: text;
-> ```
-
-> Git rusak terus. Harus membuat catatan cara menggunakan Git dan GitHub.
-
-## Minggu 2
-
-> Tidak ada catatan
+Pada dasarnya, AI adalah mesin penerus pola. Maka, strategi prompting yang terbaik adalah dengan memberikan contoh yang baik untuk diikuti. Karena website saya memiliki desain visual yang konsisten, ChatGPT mampu membantu meneruskannya untuk mengurangi pemrograman yang berasa repetitif.
