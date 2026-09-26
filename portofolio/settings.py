@@ -14,6 +14,7 @@ from pathlib import Path
 
 import os
 from dotenv import load_dotenv
+
 # Load environment variables from .env file
 load_dotenv()
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "leow-vincent-myportofolio.pws.cs.ui.ac.id"]
@@ -67,6 +68,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "main.context_processors.global_context",
             ],
         },
     },
