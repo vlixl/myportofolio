@@ -159,3 +159,5 @@ MAILERS = {
 
 # IMPLEMENTASI FORM
 CSRF_TRUSTED_ORIGINS = ["https://leow-vincent-myportofolio.pws.cs.ui.ac.id"]
+# URL Login
+LOGIN_URL = "/login/"

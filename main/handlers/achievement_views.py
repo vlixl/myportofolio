@@ -6,8 +6,6 @@ from django.shortcuts import get_object_or_404, redirect, render
 from main.models import Achievement
 from main.forms import AchievementForm 
 
-# Achievements
-
 def create_achievement(request):
    
     form = AchievementForm(request.POST or None)
