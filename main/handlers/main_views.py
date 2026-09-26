@@ -2,7 +2,7 @@
 from django.core import serializers
 from django.shortcuts import render
 
-from achievement_views import get_achievements_json
+from .achievement_views import get_achievements_json
 
 
 def show_main(request):

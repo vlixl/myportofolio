@@ -21,5 +21,6 @@ from .handlers.project_views import (
     create_project,
     show_projects,
     delete_project,
-    get_projects_json
+    get_projects_json,
+    toggle_star,
 )
