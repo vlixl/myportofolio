@@ -52,4 +52,7 @@ urlpatterns = [
 
     path("achievements/<uuid:achievement_id>/star/", toggle_achievement_star,
         name="toggle_achievement_star"),
+
+    path("projects/add-ajax/", create_project_ajax, 
+        name="create_project_ajax"),
 ]

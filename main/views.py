@@ -24,4 +24,5 @@ from .handlers.project_views import (
     delete_project,
     get_projects_json,
     toggle_project_star,
+    create_project_ajax,
 )

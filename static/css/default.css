@@ -22,6 +22,9 @@ body::-webkit-scrollbar {
     padding: 0;
     box-sizing: border-box;
 }
+.hide {
+    display: none !important;
+}
 
 /* Variable Declaration */
 :root {
@@ -50,6 +53,11 @@ body::-webkit-scrollbar {
     /* Other Settings */
     --radius: 2.5em;
     --radius-max: 9999px;
+
+    /* Fonts */
+    --sans-serif: "Outfit", "Inter", sans-serif;
+    --body-text: "Inter", sans-serif;
+    --serif: "STIX Two Text", 'Times New Roman', Times, serif;
 }
 /* For gradients: https://cssgradient.io/ */
 
@@ -60,7 +68,7 @@ body::-webkit-scrollbar {
 */
 
 body {
-    font-family: "Outfit", "Inter", sans-serif;
+    font-family: var(--sans-serif);
     color: var(--ink);
     background-color: var(--paper);
     line-height: 1.6;
@@ -71,7 +79,7 @@ img {
 }
 
 h1, h2, h3 {
-    font-family: "STIX Two Text", 'Times New Roman', Times, serif;
+    font-family: var(--serif);
     
     line-height: 1;
     font-weight: normal;
@@ -275,3 +283,56 @@ hr {
     border-top: 1px solid var(--line);
 }
 
+
+/* 
+==================================================
+    TOAST
+==================================================
+*/
+.toast-component {
+    position: fixed;
+    inset: auto 2rem 2rem auto;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px rgba(28, 25, 23, 0.15);
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--paper);
+    border: 1px solid var(--line);
+    color: inherit;
+}
+
+.toast-component:popover-open {
+    display: flex;
+}
+
+.toast-hidden {
+    opacity: 0;
+    transform: translateY(150%);
+    pointer-events: none;
+}
+
+.toast-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+    font-family: var(--sans-serif);
+}
+
+.toast-message {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Modifikasi border kiri berdasarkan tipe notifikasi */
+.toast-success { border: 1px solid #22c55e; }
+.toast-error { border: 1px solid #b42318; }
+.toast-normal { border: 1px solid var(--accent); }
