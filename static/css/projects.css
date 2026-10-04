@@ -15,39 +15,6 @@
     margin-bottom: 2rem;
 }
 
-/* Add Project Button */
-
-.project-add-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-
-    margin: 0 0 0.5rem 0;
-    padding: 0.8rem 1.2rem;
-
-    border: none;
-    border-radius: var(--radius);
-
-    background: var(--bright-gradient);
-    box-shadow: inset 0 0 0 100vmax var(--ink);
-
-    color: var(--paper);
-
-    font-weight: 600;
-    text-decoration: none;
-
-    transition: box-shadow 0.3s ease;
-}
-
-.project-add-button:hover {
-    box-shadow: inset 0 0 0 100vmax transparent;
-}
-
-.project-add-button span {
-    font-size: 1.2rem;
-    line-height: 1;
-}
 
 
 /* 
@@ -103,29 +70,8 @@
 
 .project-search .button {
     flex-shrink: 0;
-
     margin: 0;
     padding: 0.9rem 1.5rem;
-
-    border: none;
-    border-radius: var(--radius);
-
-    background: var(--bright-gradient);
-    box-shadow: inset 0 0 0 100vmax var(--ink);
-
-    color: var(--paper);
-
-    font-family: "Outfit", "Inter", sans-serif;
-    font-size: 1em;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: box-shadow 0.3s ease;
-}
-
-.project-search .button:hover {
-    box-shadow: inset 0 0 0 100vmax transparent;
 }
 
 @media (max-width: 800px) {
@@ -157,7 +103,6 @@
     margin-top: 1rem;
     margin-bottom: 4rem;
 }
-
 
 /* 
 ==================================================
@@ -351,6 +296,7 @@
 .project-actions .button-danger {
     background: #9e2424;
     color: white;
+    box-shadow: none;
 }
 
 .project-actions .button-danger:hover {

@@ -78,37 +78,7 @@
 
 /* Button */
 
-.button{
-    display: inline-block;
 
-    height: fit-content;
-    padding: 0.65rem 1rem;
-    margin: 0.8rem 0;
-
-    border: none;
-    border-radius: var(--radius);
-
-    background: var(--bright-gradient);
-    box-shadow: inset 0 0 0 100vmax var(--ink);
-
-    color: var(--paper);
-
-    cursor: pointer;
-
-    font: inherit;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-
-    transition:
-        box-shadow 0.3s ease,
-        color 0.3s ease;
-}
-
-.button:hover {
-    box-shadow: inset 0 0 0 100vmax transparent;
-    color: var(--ink);
-}
 
 
 /* Messages */
