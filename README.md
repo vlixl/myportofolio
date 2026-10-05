@@ -88,3 +88,19 @@ Dalam HTML, crsf token wajib ditambahkan sebagai bukti bahwa sebuah request bena
 Dalam pengerjaan tugas 4, AI yang digunakan adalah ChatGPT. Dalam hal ini, ChatGPT digunakan untuk membantu mempercepat mengenakan style dengan gaya dan struktur yang sama untuk login, register, dan komponen-komponen lain. AI juga digunakan untuk memahami konsep-konsep mengenai authorization. 
 
 Pada dasarnya, AI adalah mesin penerus pola. Maka, strategi prompting yang terbaik adalah dengan memberikan contoh yang baik untuk diikuti. Karena website saya memiliki desain visual yang konsisten, ChatGPT mampu membantu meneruskannya untuk mengurangi pemrograman yang berasa repetitif.
+
+
+
+## Tugas 5
+
+### Jawaban Tugas 5
+
+1. Debouncing adalah teknik menunda eksekusi sebuah fungsi sampai pengguna berhenti memicunya selama waktu tertentu (pada proyek ini 300 ms). Setiap ketikan mereset timer, sehingga request hanya dikirim sekali setelah pengguna berhenti mengetik. Tanpa debouncing, setiap huruf akan mengirim request ke server. Hal ini membuang bandwidth dan beban server, membuat tampilan berkedip, dan berisiko menampilkan hasil yang tidak berurutan karena respons lama bisa tiba setelah respons baru.
+
+2. `await` membuat fungsi `async` berhenti sementara sampai Promise yang dikembalikan `fetch()` selesai, lalu memberikan nilai hasilnya (objek `Response`). Tanpa `await`, kita hanya mendapat Promise yang masih pending. Kode berikutnya, misalnya `response.ok` atau `response.json()`, akan dijalankan pada Promise tersebut dan bukan pada respons asli, sehingga data tidak terbaca, error tidak tertangkap oleh `try/catch`, dan UI bisa diperbarui sebelum data tersedia.
+
+3. Cross-Site Scripting (XSS) adalah serangan ketika penyerang menyisipkan kode JavaScript berbahaya (misalnya `<img src="x" onerror="alert(1)">`) ke dalam data yang kemudian dieksekusi di browser korban, sehingga bisa mencuri cookie/sesi atau melakukan aksi atas nama korban. Data yang ditampilkan lewat AJAX lebih rentan karena Django template melakukan auto-escape secara default, sedangkan ketika HTML dirakit manual di JavaScript (misalnya template literal yang dimasukkan ke `innerHTML`), tidak ada escaping otomatis. Karena itu setiap nilai harus di-escape secara manual (`escapeHtml` atau `textContent`), ditambah pembersihan di server dengan `strip_tags`.
+
+### Penggunaan AI Tugas 5
+
+Claude (Anthropic) digunakan untuk membantu dalam memahami cara mengimplementasikan fitur AJAX pada section Achievements (endpoint JSON, view POST, modal, search dengan debounce)

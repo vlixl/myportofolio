@@ -5,6 +5,7 @@ from .handlers.achievement_views import (
     delete_achievement, 
     get_achievements_json,
     toggle_achievement_star,
+    create_achievement_ajax,
 )
 from .handlers.auth_views import (
     register, 

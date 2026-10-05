@@ -1,0 +1,38 @@
+<div id="add-achievement-modal"
+     class="project-form-modal hide-scrollbar"
+     popover="auto"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="add-achievement-modal-title">
+    <button type="button"
+            class="project-form-modal__backdrop"
+            popovertarget="add-achievement-modal"
+            popovertargetaction="hide"
+            aria-label="Tutup form tambah achievement"></button>
+
+    <div class="project-form-modal__content">
+        <button type="button"
+                class="project-form-modal__close"
+                popovertarget="add-achievement-modal"
+                popovertargetaction="hide"
+                aria-label="Tutup form tambah achievement">×</button>
+
+        <h2 id="add-achievement-modal-title">Add Achievement</h2>
+        <form id="achievement-add-form" method="post" class="project-form">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <div class="project-form-modal__actions">
+                <button type="button"
+                        class="button button-secondary"
+                        popovertarget="add-achievement-modal"
+                        popovertargetaction="hide">Cancel</button>
+                <button type="submit" class="button">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
