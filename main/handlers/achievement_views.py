@@ -41,7 +41,11 @@ def delete_achievement(request, achievement_id):
     return redirect("main:show_main")
 
 def get_achievements_json(request):
+    title_query = request.GET.get("title", "").strip()
     achievements = Achievement.objects.all()
+
+    if title_query:
+        achievements = achievements.filter(event__icontains=title_query)
 
     achievements_json = serializers.serialize(
         "json", achievements)

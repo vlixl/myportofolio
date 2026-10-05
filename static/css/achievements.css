@@ -293,3 +293,44 @@
 .button-star:active {
     transform: translateY(0) scale(0.97);
 }
+
+
+.achievement-search {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+}
+
+.achievement-search__input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 0.5rem 1.25rem;
+
+    border: 2px solid var(--paper);
+    border-left: 2px solid #ff538e;
+
+    background: rgb(23, 23, 34);
+    color: var(--ink);
+
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+}
+
+.achievement-search__input::placeholder {
+    color: var(--text-muted);
+}
+
+.achievement-search__input:focus {
+    outline: none;
+
+    border: 2px solid transparent;
+
+    background:
+        linear-gradient(
+            rgb(23, 23, 34),
+            rgb(23, 23, 34)
+        ) padding-box,
+        var(--bright-gradient) border-box;
+}
