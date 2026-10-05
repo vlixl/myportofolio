@@ -89,3 +89,33 @@ class AchievementForm(ModelForm):
             "organization": "Organization",
             "description": "Description",
         }
+
+    # Pembersihan input (XSS): hapus tag HTML dari setiap field teks di sisi server.
+    @staticmethod
+    def _clean_text(value):
+        return strip_tags(value or "").strip()
+
+    def _clean_required_text(self, field_name, label):
+        value = self._clean_text(self.cleaned_data[field_name])
+        if not value:
+            raise ValidationError(f"{label} tidak boleh kosong atau hanya berisi tag HTML.")
+        return value
+
+    def clean_award(self):
+        return self._clean_required_text("award", "Award")
+
+    def clean_award_label(self):
+        return self._clean_required_text("award_label", "Award label")
+
+    def clean_category(self):
+        return self._clean_required_text("category", "Category")
+
+    def clean_event(self):
+        return self._clean_text(self.cleaned_data["event"])
+
+    def clean_organization(self):
+        return self._clean_text(self.cleaned_data["organization"])
+
+    def clean_description(self):
+        return self._clean_required_text("description", "Description")
+    # -------------EndOfChanges-----------

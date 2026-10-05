@@ -6,6 +6,9 @@
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/hero.css' %}">
     <link rel="stylesheet" href="{% static 'css/achievements.css' %}">
+    <!-- -----------StartOfChanges-------------- -->
+    <link rel="stylesheet" href="{% static 'css/project-form.css' %}">
+    <!-- -------------EndOfChanges----------- -->
 
     <!-- Google Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star" />
@@ -100,49 +103,32 @@
                         aria-label="Cari berdasarkan nama achievement">
                     <button type="submit" class="button-accent">Cari</button>
                 </form>
-                {% for achievement in achievement_list %}
-                    <article class="achievement-row">
-                        {% include "components/achievement_star.html" with achievement=achievement %}
-                        <h2 class="award-result">
-                            <span>{{ achievement.award }}</span>
-                            {{ achievement.award_label }}
-                        </h2>
-                        <div class="award-detail">
-                            <p>
-                                {{ achievement.category }} · {{ achievement.get_month_display }} {{ achievement.year }}
-                            </p>
-                            <h3>{{ achievement.event }}</h3>
-                            <p>{{ achievement.organization }}</p>
-                            <p>{{ achievement.description }}</p>
-                            <div class="achievement-form">
-                                {% if perms.main.change_achievement %}
-                                    <a href="{% url 'main:update_achievement' achievement.id %}" class="edit-achievement">
-                                    Edit
-                                    </a>
-                                {% endif %}
-                                {% if perms.main.delete_achivement %}
-                                <form
-                                    action="{% url 'main:delete_achievement' achievement.id %}"
-                                    method="POST"
-                                >
-                                    {% csrf_token %}
-                                    <button type="submit" class="delete-achievement">
-                                        Delete
-                                    </button>
-                                </form>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </article>
-                {% empty %}
+                <!-- -----------StartOfChanges-------------- -->
+                <!-- Loading State -->
+                <div id="achievement-loading" class="achievement-state hide">
+                    <p>Memuat achievements...</p>
+                </div>
+
+                <!-- Error State -->
+                <div id="achievement-error" class="achievement-state hide">
+                    <p>Gagal memuat data achievements. Silakan coba lagi.</p>
+                </div>
+
+                <!-- Empty State -->
+                <div id="achievement-empty" class="achievement-state hide">
                     <p>Wow, such empty :3</p>
-                {% endfor %}
+                </div>
+
+                <!-- Daftar diisi oleh static/js/achievements.js -->
+                <div id="achievement-items" class="achievement-items hide"></div>
+
                 {% if perms.main.add_achievement %}
-                    <a href="{% url 'main:create_achievement' %}" 
-                    class="add-achievement">
+                    <button type="button" class="add-achievement"
+                            popovertarget="add-achievement-modal">
                         Add Achievement
-                    </a>
+                    </button>
                 {% endif %}
+                <!-- -------------EndOfChanges----------- -->
                 </div>
         </div>
     </section>
@@ -162,4 +148,25 @@
         </div>
     </section>
 
+{% endblock %}
+
+{% block modal %}
+    {% if perms.main.add_achievement %}
+        {% include "components/achievement_form_modal.html" with form=achievement_form %}
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script>
+        window.ACHIEVEMENTS_CONFIG = {
+            listEndpoint: "{% url 'main:get_achievements_json' %}",
+            createEndpoint: "{% url 'main:create_achievement_ajax' %}",
+            dummyId: "00000000-0000-0000-0000-000000000000",
+            editUrlTemplate: "{% url 'main:update_achievement' '00000000-0000-0000-0000-000000000000' %}",
+            deleteUrlTemplate: "{% url 'main:delete_achievement' '00000000-0000-0000-0000-000000000000' %}",
+            starUrlTemplate: "{% url 'main:toggle_achievement_star' '00000000-0000-0000-0000-000000000000' %}",
+        };
+    </script>
+    <script src="{% static 'js/utils.js' %}"></script>
+    <script src="{% static 'js/achievements.js' %}"></script>
 {% endblock %}

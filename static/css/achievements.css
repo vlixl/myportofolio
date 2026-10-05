@@ -334,3 +334,38 @@
         ) padding-box,
         var(--bright-gradient) border-box;
 }
+
+/* -----------StartOfChanges-------------- */
+/* Container daftar AJAX mengikuti layout kolom yang sama dengan .achievement-list */
+.achievement-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.achievement-state {
+    padding: 2rem;
+    background-color: #0f1118;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Tombol Add Achievement sekarang <button>, bukan <a> */
+button.add-achievement {
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+#add-achievement-modal-title {
+    margin: 1rem 3rem 2rem 0;
+
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 1rem + 4vw, 3.4rem);
+    font-weight: normal;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+
+    color: var(--ink);
+}
+/* -------------EndOfChanges----------- */
