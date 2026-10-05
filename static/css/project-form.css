@@ -1,6 +1,116 @@
-/* Header */
-.section-header{
-    font-size: clamp(1em, 15vw, 8em);
+/* 
+==================================================
+    MODAL
+==================================================
+*/
+
+.project-form-modal {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    width: min(46rem, calc(100vw - 2rem));
+    max-height: 85vh;
+
+    padding: 0;
+    border: none;
+
+    background: transparent;
+    color: inherit;
+
+    overflow: hidden;
+}
+
+.project-form-modal::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+}
+
+.project-form-modal__backdrop {
+    position: fixed;
+    inset: 0;
+
+    border: none;
+    background: transparent;
+}
+
+.project-form-modal__content {
+    position: relative;
+
+    width: 100%;
+    max-height: 85vh;
+
+    padding: 2.25rem;
+
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    background: rgb(14, 14, 18);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 2rem;
+
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.45);
+}
+
+.project-form-modal__content::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 
+==================================================
+    HEADER
+==================================================
+*/
+
+#add-project-modal-title {
+    margin: 1rem 3rem 2rem 0;
+
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 1rem + 4vw, 3.4rem);
+    font-weight: normal;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+
+    color: var(--ink);
+}
+
+.project-form-modal__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+
+    width: 2.4rem;
+    height: 2.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: var(--ink);
+
+    font: inherit;
+    font-size: 1.6rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.project-form-modal__close:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--accent-base);
+    transform: rotate(5deg);
 }
 
 
@@ -12,21 +122,19 @@
 
 .project-form {
     width: 100%;
-    max-width: 100%;
-    margin: 2rem 0;
-    background-color: var(--paper);
-    border-radius: var(--radius);
-    padding: 2rem;
+
+    margin: 0;
+    padding: 0;
+
+    background: none;
+    border: none;
+    border-radius: 0;
 }
 
 .form-group {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.4rem;
 }
 
-.project-form {
-    --radius: 1.5em;
-    --paper: rgb(23, 23, 34);
-}
 
 /* 
 ==================================================
@@ -35,15 +143,15 @@
 */
 
 .form-group label {
-
-    font-size: 1.5em;
-
     display: block;
-    margin-bottom: 0.4rem;
-    
+
+    margin-bottom: 0.55rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
 
     color: var(--ink);
-
 }
 
 
@@ -57,52 +165,54 @@
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 0.8rem 1rem;
-    font-family: 'Inter', sans-serif;
-    font-size: 1em;
 
-    border: 2px solid gray;
-    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
 
-    background: var(--paper);
+    font: inherit;
+    font-size: 0.95rem;
+
     color: var(--ink);
+    background: rgba(255, 255, 255, 0.035);
 
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 0.9rem;
+
+    outline: none;
 
     transition:
-        border-color 0.2s ease,
-        outline-color 0.2s ease;
+        background-color 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
 }
 
-.form-group textarea {
-    min-height: 6rem;
-    resize: vertical;
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.28);
 }
-
-
-/* Placeholder Text */
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-muted);
-}
-
-
-/* 
-==================================================
-    FORM FOCUS
-==================================================
-*/
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-    outline: none;
+    border-color: var(--accent-base);
+    background: rgba(255, 255, 255, 0.055);
 
-    border: 2px solid transparent;
+    box-shadow: 0 0 0 3px color-mix(
+        in srgb,
+        var(--accent-base) 16%,
+        transparent
+    );
+}
 
-    background:
-        linear-gradient(var(--paper), var(--paper)) padding-box,
-        var(--bright-gradient) border-box;
+.form-group textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
 }
 
 
@@ -113,8 +223,64 @@
 */
 
 .form-error {
-    margin-top: 0.35rem;
+    margin: 0.45rem 0 0;
 
-    color: #ff6b6b;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+
+    color: #ff7777;
+}
+
+
+/* 
+==================================================
+    FORM ACTIONS
+==================================================
+*/
+
+.project-form-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* 
+==================================================
+    MOBILE
+==================================================
+*/
+
+@media (max-width: 600px) {
+    .project-form-modal {
+        width: calc(100vw - 1rem);
+        max-height: calc(100vh - 1rem);
+    }
+
+    .project-form-modal__content {
+        max-height: calc(100vh - 1rem);
+
+        padding: 1.5rem;
+
+        border-radius: 1.25rem;
+    }
+
+    #add-project-modal-title {
+        margin-bottom: 1.5rem;
+
+        font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .project-form-modal__actions {
+        flex-direction: column-reverse;
+    }
+
+    .project-form-modal__actions .button {
+        width: 100%;
+    }
 }
