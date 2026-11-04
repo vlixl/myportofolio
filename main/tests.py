@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from main.models import Achievement, Education, Experience, Music, Photo
+from main.models import Achievement, Education, Music, Photo
 
 
 class MainTest(TestCase):

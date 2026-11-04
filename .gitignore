@@ -120,3 +120,6 @@ sftp-config.json
 
 # macOS
 .DS_Store
+
+# Local backups created by the Tutorial 7 helper
+.tutorial7-backup/

@@ -120,7 +120,7 @@
                 <!-- Daftar diisi oleh static/js/achievements.js -->
                 <div id="achievement-items" class="achievement-items hide"></div>
 
-                {% if perms.main.add_achievement %}
+                {% if user.is_superuser %}
                     <button type="button" class="add-achievement"
                             popovertarget="add-achievement-modal">
                         Add Achievement
@@ -149,20 +149,23 @@
 {% endblock %}
 
 {% block modal %}
-    {% if perms.main.add_achievement %}
+    {% if user.is_superuser %}
         {% include "components/achievement_form_modal.html" with form=achievement_form %}
     {% endif %}
 {% endblock %}
 
 {% block script %}
+    {% csrf_token %}
     <script>
         window.ACHIEVEMENTS_CONFIG = {
-            listEndpoint: "{% url 'main:get_achievements_json' %}",
-            createEndpoint: "{% url 'main:create_achievement_ajax' %}",
+            listEndpoint: "{% url 'api:achievement-list' %}",
+            createEndpoint: "{% url 'api:achievement-list' %}",
             dummyId: "00000000-0000-0000-0000-000000000000",
+            detailUrlTemplate: "{% url 'api:achievement-detail' '00000000-0000-0000-0000-000000000000' %}",
             editUrlTemplate: "{% url 'main:update_achievement' '00000000-0000-0000-0000-000000000000' %}",
-            deleteUrlTemplate: "{% url 'main:delete_achievement' '00000000-0000-0000-0000-000000000000' %}",
-            starUrlTemplate: "{% url 'main:toggle_achievement_star' '00000000-0000-0000-0000-000000000000' %}",
+            starUrlTemplate: "{% url 'api:achievement-star' '00000000-0000-0000-0000-000000000000' %}",
+            loginUrl: "{% url 'main:login' %}",
+            isAuthenticated: "{{ user.is_authenticated|yesno:'true,false' }}" === "true",
         };
     </script>
     <script src="{% static 'js/utils.js' %}"></script>

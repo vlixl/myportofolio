@@ -422,16 +422,18 @@
     display: inline;
 }
 
-.button-star {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: var(--ink);
+/* Starred */
+.button-star.is-starred {
+    background: var(--bright-gradient);
+    color: white;
+    box-shadow: none;
 }
 
-.button-star.is-starred {
-    background: var(--accent);
-    color: var(--ink);
+/* Hover */
+.button-star:hover {
+    background: var(--bright-gradient);
+    color: white;
+    box-shadow: none;
 }
 
 .star-count {
