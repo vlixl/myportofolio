@@ -106,3 +106,31 @@ Pada dasarnya, AI adalah mesin penerus pola. Maka, strategi prompting yang terba
 Dalam pengerjaan tugas 5, AI yang digunakan adalah Claude (Anthropic). AI digunakan terutama untuk memahami cara kerja AJAX dan bagaimana konsep tersebut dapat diimplementasikan pada section Achievements. Dalam hal ini, AI membantu saya memahami pembuatan JSON endpoint, penggunaan `fetch`, pengiriman POST request melalui AJAX, modal untuk menambahkan data, dan search menggunakan debounce.
 
 Sama seperti tugas sebelumnya, kelemahan utama AI adalah kurang memahami struktur proyek secara keseluruhan. Maka, solusi yang diberikan masih perlu disesuaikan kembali dengan struktur dan style website yang sudah ada.
+
+
+## Tugas 6
+
+1. Jelaskan apa yang dimaksud dengan REST dan mengapa mengembalikan JSON saja belum cukup untuk menyebut sebuah API sebagai RESTful! Jelaskan pula perbedaan PUT dan PATCH beserta contoh kapan masing-masing sebaiknya digunakan!
+2. Jelaskan peran serializer pada Django REST Framework! Apa keuntungannya dibandingkan merakit dictionary secara manual dengan JsonResponse seperti pada Tutorial 05?
+3. Jelaskan perbedaan autentikasi dan otorisasi pada Django REST Framework! Mengapa hak akses harus diperiksa dengan permission class di server, bukan hanya dengan menyembunyikan tombol di template?
+4. Jelaskan mengapa permintaan yang mengubah data tetap memerlukan token CSRF ketika API memakai SessionAuthentication! Mengapa test yang memakai force_authenticate tidak cukup untuk membuktikan bahwa perlindungan CSRF berjalan?
+
+### Jawaban Tugas 6
+
+1. REST adalah gaya arsitektur yang mengikuti beberapa prinsip, seperti uniform interface, client-server, stateless, cacheable, layered system, dan code on demand (opsional). Jadi, sebuah API yang mengembalikan JSON belum tentu RESTful karena harus memperhatikan prinsip-prinsip tersebut. Perbedaan antara PUT dan PATCH adalah PUT digunakan untuk mengganti data suatu objek secara keseluruhan, sedangkan PATCH digunakan untuk mengubah sebagian data saja. Misalnya, PUT digunakan ketika ingin mengganti seluruh data proyek, sementara PATCH digunakan ketika hanya ingin mengubah judulnya.
+
+2. Dalam Django REST Framework, class Serializer digunakan untuk mengubah objek menjadi data yang dapat dikirim dalam bentuk JSON, sekaligus memvalidasi input sebelum disimpan ke database. Dibandingkan merakit dictionary secara manual menggunakan JsonResponse, penggunaan Serializer dapat mengurangi pengulangan kode dan meningkatkan maintainability. Selain itu, logika serialisasi dan validasi dapat dipisahkan dari view sehingga kode menjadi lebih rapi dan mudah dikelola.
+
+3. Autentikasi digunakan untuk mengidentifikasi pengguna, misalnya melalui proses login menggunakan username dan password. Sedangkan, otorisasi digunakan untuk menentukan hak akses pengguna terhadap sumber daya tertentu. Hak akses harus diperiksa di sisi server karena pengguna dapat memodifikasi kode atau request dari browser untuk mencoba mengakses sumber daya yang seharusnya tidak boleh diakses. Jadi, menyembunyikan tombol di frontend saja tidak cukup untuk menjamin keamanan.
+
+4. Ketika menggunakan SessionAuthentication, browser akan otomatis mengirim cookie session setiap kali membuat request. Masalahnya, situs lain bisa saja memanfaatkan hal ini untuk mengirim request atas nama pengguna yang sedang login tanpa sepengetahuannya. Karena itu, request yang mengubah data, seperti POST, PUT, PATCH, dan DELETE, tetap membutuhkan token CSRF sebagai perlindungan tambahan.
+
+   Sementara itu, force_authenticate() tidak cukup untuk menguji perlindungan CSRF karena metode ini langsung menganggap pengguna sudah terautentikasi tanpa melewati proses autentikasi session dan pemeriksaan CSRF. Jadi, untuk mengujinya, kita perlu menggunakan APIClient(enforce_csrf_checks=True) dan .login(), lalu memastikan request tanpa token CSRF menghasilkan status 403.
+
+### AI Disclosure Tugas 6
+
+Dalam pengerjaan Tugas 6, AI yang digunakan adalah ChatGPT (OpenAI). AI digunakan untuk membantu memahami dan mengimplementasikan Django REST Framework pada bagian Achievements, terutama dalam pembuatan serializer, permission class, API view, integrasi AJAX dengan API, serta unit testing menggunakan APITestCase.
+
+Strategi prompting yang saya gunakan adalah memberikan konteks dari instruksi tugas dan kode proyek yang sudah ada, kemudian meminta AI untuk menjelaskan konsep, membantu implementasi, serta memeriksa kemungkinan kesalahan. AI juga membantu menyusun tambahan unit test untuk menguji hak akses, validasi input, dan perlindungan CSRF.
+
+Salah satu keterbatasan AI yang saya temukan adalah kurangnya ketelitian dalam memahami cakupan instruksi. Selain itu, beberapa solusi yang diberikan tidak sepenuhnya sesuai dengan struktur proyek sehingga perlu diperiksa dan disesuaikan kembali.
